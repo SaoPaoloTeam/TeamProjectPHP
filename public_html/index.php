@@ -1,22 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>MADA FAKAAA</title>
-</head>
-<body>
+
 
 <?php
 // load up your config file
 require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 $config['db'];
 
-//Loading Header
+require_once(TEMPLATES_PATH . "/head.php");
 require_once(TEMPLATES_PATH . "/header.php");
 
 
 ?>
-<div id="container">
+<main>
     <div id="content">
         <!-- content -->
     </div>
@@ -33,7 +27,7 @@ require_once(TEMPLATES_PATH . "/header.php");
 
     require_once(TEMPLATES_PATH . "/rightPanel.php");
     ?>
-</div>
+</main>
 
 <!--Loading Footer-->
 <?php

@@ -2,20 +2,24 @@
 
 <!--NOT CHANGED SINCE TEMPLATE CREATION-->
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
 
-</head>
-<body>
-<form action="register.php" method="post">
-    <input type="text" name="username"/>
-    <input type="password" name="password"/>
-    <input type="password" name="rpassword"/>
-    <input type="submit" name="submit"/>
-</form>
+<?php
+    require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
+    require_once(TEMPLATES_PATH . "/head.php");
+    require_once(TEMPLATES_PATH . "/header.php");
+?>
+<main>
+    <div id="content">
+        <form action="register.php" method="post">
+            <input type="text" name="username"/>
+            <input type="password" name="password"/>
+            <input type="password" name="rpassword"/>
+            <input type="submit" name="submit"/>
+        </form>
+    </div>
+    <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
+</main>
+<?php require_once(TEMPLATES_PATH . "/footer.php"); ?>
 
 <?php
     include_once('connection.php');

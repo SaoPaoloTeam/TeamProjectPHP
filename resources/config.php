@@ -32,8 +32,6 @@ $config = array(
 $conn = mysqli_connect($config['db']['host'],$config['db']['username'], $config['db']['password'], $config['db']['dbname'], $config['db']['port']);
 
 
-
-
 /*
     Creating constants for heavily used paths makes things a lot easier.
     ex. require_once(LIBRARY_PATH . "Paginator.php")
@@ -48,4 +46,4 @@ or define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
     Error reporting.
 */
 ini_set("error_reporting", "true");
-error_reporting(E_ALL|E_STRCT);
+error_reporting(E_ALL|E_STRICT);
