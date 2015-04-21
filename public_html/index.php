@@ -24,8 +24,10 @@ require_once(TEMPLATES_PATH . "/header.php");
 
 
     //TEST THE VARIABLES IN CONFIG FILE :)))
+    echo "<br><br><p>Test the folders</p>";
     echo $config['paths']['resources'] . '<br>';
     echo $config['paths']['images']['content'];
+    echo "<p>Test the folders</p><br><br>";
     //TEST THE VARIABLES IN CONFIG FILE :)))
 
 
