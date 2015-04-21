@@ -11,6 +11,8 @@ if (isset($_POST['submit'])) {
     $sql = "SELECT id, username FROM Users WHERE username = '$name' AND password = '$pass';";
     $query = mysqli_query($conn, $sql);
     if (mysqli_num_rows($query) == 1) {
+        session_start();
+        $_SESSION['user'] = $name;
         header("Location: ../admin.php");
     }
 }
