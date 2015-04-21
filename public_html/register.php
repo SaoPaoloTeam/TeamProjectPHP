@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+
 </head>
 <body>
 <form action="register.php" method="post">
@@ -11,6 +12,7 @@
     <input type="password" name="rpassword"/>
     <input type="submit" name="submit"/>
 </form>
+
 <?php
     include_once('connection.php');
 if (isset($_POST['submit'])) {

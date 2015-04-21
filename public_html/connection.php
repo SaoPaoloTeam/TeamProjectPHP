@@ -1,15 +1,10 @@
 <?php
-    $host = "sql3.freemysqlhosting.net";
-    $dbname = "sql374012";
-    $user= "sql374012";
-    $pass = "hQ1*kD8%";
-    $port = "3306";
-
-$conn = mysqli_connect($host, $user, $pass, $dbname, $port);
+require_once(realpath(dirname(__FILE__) . "/resources/config.php"));
 
 if (!$conn) {
     die("error");
 }
+echo "SUCCESS";
 //echo "success<br>";
 
 //$sql = "CREATE TABLE Users (
