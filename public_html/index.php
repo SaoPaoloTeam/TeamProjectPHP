@@ -3,7 +3,7 @@
 <?php
 // load up your config file
 require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
-$config['db'];
+//$config['db'];
 
 require_once(TEMPLATES_PATH . "/head.php");
 require_once(TEMPLATES_PATH . "/header.php");

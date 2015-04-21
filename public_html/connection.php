@@ -1,5 +1,5 @@
 <?php
-require_once("../resources/config.php");
+require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 
 if (!$conn) {
     die("error");
