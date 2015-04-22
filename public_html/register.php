@@ -24,9 +24,9 @@
 <?php
     include_once('connection.php');
 if (isset($_POST['submit'])) {
-    $pass = md5(htmlspecialchars($_POST['password']));
-    $rpass = md5(htmlspecialchars($_POST['rpassword']));
-    $uname = htmlspecialchars($_POST['username']);
+    $pass = md5(validate($_POST['password']));
+    $rpass = md5(validate($_POST['rpassword']));
+    $uname = validate($_POST['username']);
     if ($pass != $rpass) {
         die("Passwords do not match");
     }
@@ -46,6 +46,8 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $query);
         var_dump($result);
     }
+
+
 }
 ?>
 </body>

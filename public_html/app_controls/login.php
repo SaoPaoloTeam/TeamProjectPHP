@@ -2,8 +2,8 @@
 include_once('../connection.php');
 
 if (isset($_POST['submit'])) {
-    $name = htmlspecialchars($_POST['uname']);
-    $pass = htmlspecialchars($_POST['pass']);
+    $name = validate($_POST['uname']);
+    $pass = validate($_POST['pass']);
 
 
     $name = mysqli_real_escape_string($conn, $name);
