@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($query) == 1) {
         session_start();
         $_SESSION['user'] = $name;
-        header("Location: ../admin.php");
+        redirect_to("../admin.php");
     }
     else{
      echo   'NOT A USER';
