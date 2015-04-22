@@ -21,13 +21,29 @@ require_once(TEMPLATES_PATH . "/header.php");
                     echo "Hello," . $_SESSION['user'];
                     echo "<a href='../resources/app_controls/logout.php'>Logout</a>";
                 ?>
+                <div onclick="showMenu()">Write new</div>
             </div>
-            <form action="../resources/app_controls/add_article.php" method="post">
-                <input type="text" name="title" placeholder="Topic title.."/>
-                <textarea name="content" cols="30" rows="10" placeholder="Topic text"></textarea>
-                <input type="submit" name="topic-submit" value="Submit"/>
-            </form>
+            <div id="form-div" style="display: none">
+                <form action="../resources/app_controls/add_article.php" method="post">
+                    <input type="text" name="title" placeholder="Topic title.."/>
+                    <textarea name="content" cols="30" rows="10" placeholder="Topic text"></textarea>
+                    <input type="submit" name="topic-submit" value="Submit"/>
+                </form>
+            </div>
         </section>
+        <?php endif; ?>
+        <?php
+        $queryArticles = "SELECT title, author, content FROM Articles;";
+        $selected = mysqli_query($conn, $queryArticles);
+        ?>
+        <?php if ($selected): ?>
+            <?php while($data = mysqli_fetch_assoc($selected)): ?>
+                <article style="width: 100%">
+                    <p style="width: 90%; height: auto">Title: <?php echo $data['title']; ?></p>
+                    <p style="width: 90%; height: auto">Content: <?php echo $data['content']; ?></p>
+                    <p style="width: 90%; height: auto">Author: <?php echo $data['author']; ?></p>
+                </article>
+            <?php endwhile; ?>
         <?php endif; ?>
     </div>
     <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
@@ -39,6 +55,6 @@ require_once(TEMPLATES_PATH . "/header.php");
 require_once(TEMPLATES_PATH . "/footer.php");
 ?>
 
-
+<script src="js/user-functions.js"></script>
 </body>
 </html>
