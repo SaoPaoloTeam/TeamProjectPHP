@@ -10,11 +10,11 @@
 
 $config = array(
     "db" => array(
-            "dbname" => "sql374012",
-            "username" => "sql374012",
-            "password" => "hQ1*kD8%",
-            "host" => "sql3.freemysqlhosting.net",
-            "port" => "3306"
+        "dbname" => "sql374012",
+        "username" => "sql374012",
+        "password" => "hQ1*kD8%",
+        "host" => "sql3.freemysqlhosting.net",
+        "port" => "3306"
     ),
 
     "urls" => array(
@@ -29,7 +29,7 @@ $config = array(
     )
 );
 
-$conn = mysqli_connect($config['db']['host'],$config['db']['username'], $config['db']['password'], $config['db']['dbname'], $config['db']['port']);
+$conn = mysqli_connect($config['db']['host'], $config['db']['username'], $config['db']['password'], $config['db']['dbname'], $config['db']['port']);
 
 
 /*
@@ -46,4 +46,11 @@ or define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
     Error reporting.
 */
 ini_set("error_reporting", "true");
-error_reporting(E_ALL|E_STRICT);
+error_reporting(E_ALL | E_STRICT);
+
+function redirect_to($new_location)
+{
+    header('Location:' . $new_location);
+    exit;
+}
+
