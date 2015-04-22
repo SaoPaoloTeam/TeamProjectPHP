@@ -1,6 +1,6 @@
 <?php
 include_once('../connection.php');
-require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
+require_once(realpath(dirname(__FILE__) . "../../../resources/config.php"));
 
 if (isset($_POST['submit'])) {
     $name = validate($_POST['uname']);
