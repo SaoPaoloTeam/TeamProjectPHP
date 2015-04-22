@@ -1,7 +1,8 @@
 <?php
-include_once('../connection.php');
-require_once(realpath(dirname(__FILE__) . "../../../resources/config.php"));
-require_once(realpath(dirname(__FILE__) . "../../../resources/validations.php"));
+include_once('../../public_html/connection.php');
+require_once(realpath(dirname(__FILE__) . "/../config.php"));
+require_once(RESOURCES_PATH . "/validations.php");
+require_once(RESOURCES_PATH . "/custom_functions.php");
 
 if (isset($_POST['submit'])) {
     $name = processInput($_POST['uname']);
@@ -15,7 +16,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($query) == 1) {
         session_start();
         $_SESSION['user'] = $name;
-        redirect_to("../admin.php");
+        redirect_to("../../public_html/admin.php");
     }
     else{
      echo   'NOT A USER';

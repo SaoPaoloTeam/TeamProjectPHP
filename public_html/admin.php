@@ -1,7 +1,8 @@
 <?php
-require_once("app_controls/session.php");
 require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
-require_once(realpath(dirname(__FILE__) . "/../resources/custom_functions.php"));
+require_once(RESOURCES_PATH."../app_controls/session.php");
+
+require_once(RESOURCES_PATH. "/custom_functions.php");
 
 if (isset($_SESSION['user'])) {
     echo "Hello, " . $_SESSION['user'];
@@ -11,4 +12,4 @@ if (isset($_SESSION['user'])) {
 }
 ?>
 
-<a href="app_controls/logout.php">Logout</a>
+<a href="../resources/app_controls/logout.php">Logout</a>
