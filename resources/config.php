@@ -45,6 +45,9 @@ or define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
 defined("RESOURCES_PATH")
 or define("RESOURCES_PATH", realpath(dirname(__FILE__)));
 
+defined("PUBLIC_PATH")
+or define("PUBLIC_PATH", realpath(dirname(__DIR__)));
+
 
 /*
     Error reporting.
