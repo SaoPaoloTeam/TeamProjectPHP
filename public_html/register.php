@@ -6,6 +6,8 @@
 <?php
     require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
     require_once(realpath(dirname(__FILE__) . "/../resources/validations.php"));
+    require_once(realpath(dirname(__FILE__) . "/../resources/custom_functions.php"));
+
     require_once(TEMPLATES_PATH . "/head.php");
     require_once(TEMPLATES_PATH . "/header.php");
 ?>
@@ -32,9 +34,11 @@ if (isset($_POST['submit'])) {
         die("Passwords do not match");
     }
     var_dump($uname);
-    $uname = mysqli_real_escape_string($conn, $uname);
-    $pass = mysqli_real_escape_string($conn,$pass);
-    $pass = mysqli_real_escape_string($conn,$rpass);
+
+    $arr = escapeAll([$uname,$pass,$rpass], $conn);
+//    $uname = mysqli_real_escape_string($conn, $uname);
+//    $pass = mysqli_real_escape_string($conn,$pass);
+//    $pass = mysqli_real_escape_string($conn,$rpass);
 
     $timestamp = date('Y-m-d G:i:s');
     $queryUser = "SELECT username FROM Users WHERE username = '$uname';";
@@ -45,7 +49,7 @@ if (isset($_POST['submit'])) {
     } else {
 
         $query = "INSERT INTO Users (username, password, reg_date)
-                        VALUES ('{$uname}','{$pass}','{$timestamp}')";
+                        VALUES ('{$arr[$uname]}','{$arr[$pass]}','{$timestamp}')";
 
         $result = mysqli_query($conn, $query);
 
