@@ -13,11 +13,13 @@ main {
 }
 
 main > #content {
+    display: inline-block;
     width: 70%;
     height: 95%;
 }
 
 main > aside {
+    display: inline-block;
     width: 20%;
     height: 95%;
 }
