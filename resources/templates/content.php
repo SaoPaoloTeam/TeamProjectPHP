@@ -1,4 +1,4 @@
-<article class="posts" id="article1" onclick="takeArticleId(this.id)">
+<div class="articles"><article class="posts" id="article1" onclick="takeArticleId(this.id)">
     <header>
         <h1>Season 5</h1>
 
@@ -94,4 +94,4 @@
         <a href="index.php">Return to posts</a>
     </footer>
 
-</article>
+</article></div>
