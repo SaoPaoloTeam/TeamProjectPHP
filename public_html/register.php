@@ -5,6 +5,7 @@
 
 <?php
     require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
+    require_once(realpath(dirname(__FILE__) . "/../resources/validations.php"));
     require_once(TEMPLATES_PATH . "/head.php");
     require_once(TEMPLATES_PATH . "/header.php");
 ?>
@@ -24,9 +25,9 @@
 <?php
     include_once('connection.php');
 if (isset($_POST['submit'])) {
-    $pass = md5(validate($_POST['password']));
-    $rpass = md5(validate($_POST['rpassword']));
-    $uname = validate($_POST['username']);
+    $pass = md5(processInput($_POST['password']));
+    $rpass = md5(processInput($_POST['rpassword']));
+    $uname = processInput($_POST['username']);
     if ($pass != $rpass) {
         die("Passwords do not match");
     }

@@ -1,10 +1,11 @@
 <?php
 include_once('../connection.php');
 require_once(realpath(dirname(__FILE__) . "../../../resources/config.php"));
+require_once(realpath(dirname(__FILE__) . "../../../resources/validations.php"));
 
 if (isset($_POST['submit'])) {
-    $name = validate($_POST['uname']);
-    $pass = validate($_POST['pass']);
+    $name = processInput($_POST['uname']);
+    $pass = processInput($_POST['pass']);
 
 
     $name = mysqli_real_escape_string($conn, $name);
@@ -15,5 +16,8 @@ if (isset($_POST['submit'])) {
         session_start();
         $_SESSION['user'] = $name;
         header("Location: ../admin.php");
+    }
+    else{
+     echo   'NOT A USER';
     }
 }

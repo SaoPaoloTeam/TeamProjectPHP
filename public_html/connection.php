@@ -4,15 +4,8 @@ require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 if (!$conn) {
     die("error");
 }
-echo "SUCCESS";
 
-function validate($inp) {
-    $inp = trim($inp);
-    $inp = strip_tags($inp);
-    $inp = stripslashes($inp);
-    $inp = htmlspecialchars($inp);
-    return $inp;
-}
+
 //echo "success<br>";
 
 //$sql = "CREATE TABLE Users (
