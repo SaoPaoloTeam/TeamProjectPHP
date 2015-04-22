@@ -4,8 +4,8 @@ require_once(RESOURCES_PATH."../app_controls/session.php");
 require_once(RESOURCES_PATH . "/validations.php");
 require_once(RESOURCES_PATH . "/custom_functions.php");
 
-var_dump($_POST);
-var_dump($_SESSION);
+//var_dump($_POST);
+//var_dump($_SESSION);
 
 if (isset($_POST['topic-submit'])) {
     $author = $_SESSION['user'];
