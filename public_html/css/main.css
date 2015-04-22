@@ -6,6 +6,7 @@ header {
 }
 
 main {
+
     width: 1200px;
     height: 500px;
     border: 2px solid black;
@@ -13,12 +14,14 @@ main {
 }
 
 main > #content {
+    display: inline-block;
     width: 70%;
     height: 95%;
 }
 
 main > aside {
-    width: 20%;
+    display: inline-block;
+    width: 10%;
     height: 95%;
 }
 
