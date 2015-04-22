@@ -11,12 +11,19 @@ if (isset($_POST['submit'])) {
 
     $name = mysqli_real_escape_string($conn, $name);
     $pass = md5(mysqli_real_escape_string($conn, $pass));
-    $sql = "SELECT id, username FROM Users WHERE username = '$name' AND password = '$pass';";
+    $sql = "SELECT id, username, level FROM Users WHERE username = '$name' AND password = '$pass';";
     $query = mysqli_query($conn, $sql);
     if (mysqli_num_rows($query) == 1) {
         session_start();
-        $_SESSION['user'] = $name;
-        redirect_to("../../public_html/admin.php");
+        $output = mysqli_fetch_assoc($query);
+        $_SESSION['user'] = $output['username'];
+        if ($output['level'] == 2) {
+            $_SESSION['level'] = 2;
+            redirect_to("../../public_html/admin.php");
+        } else {
+            $_SESSION['level'] = 1;
+            redirect_to("../../public_html/index.php");
+        }
     }
     else{
      echo   'NOT A USER';

@@ -4,7 +4,7 @@ require_once(RESOURCES_PATH."../app_controls/session.php");
 
 require_once(RESOURCES_PATH. "/custom_functions.php");
 
-if (isset($_SESSION['user'])) {
+if ($_SESSION['level'] == 2) {
     echo "Hello, " . $_SESSION['user'];
 } else {
     redirect_to("index.php");

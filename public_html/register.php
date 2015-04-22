@@ -36,26 +36,26 @@ if (isset($_POST['submit'])) {
     $rpass = md5(processInput($_POST['rpassword']));
     $uname = processInput($_POST['username']);
     $email = processInput($_POST['email']);
+    $status = 'active';
+    $level = 1;
     if ($pass != $rpass) {
         die("Passwords do not match");
     }
     var_dump($uname);
 
-    $arr = escapeAll([$uname, $pass, $rpass, $email], $conn);
-//    $uname = mysqli_real_escape_string($conn, $uname);
-//    $pass = mysqli_real_escape_string($conn,$pass);
-//    $pass = mysqli_real_escape_string($conn,$rpass);
-
+    $arr = escapeAll([$uname, $pass, $rpass, $email, $status, $level], $conn);
     $timestamp = date('Y-m-d G:i:s');
-    $queryUser = "SELECT username FROM Guests WHERE username = '$uname';";
+
+    //check whether a user exists
+    $queryUser = "SELECT username FROM Users WHERE username = '$uname';";
     $selected = mysqli_query($conn, $queryUser);
 
     if ($selected->num_rows) {
         echo "user exists";
     } else {
-
-        $query = "INSERT INTO Guests (username, password, email, reg_date)
-                        VALUES ('{$arr[$uname]}','{$arr[$pass]}','{$arr[$email]}','{$timestamp}')";
+        //create new user
+        $query = "INSERT INTO Users (username, password, email, reg_date, status, level)
+                        VALUES ('{$arr[$uname]}','{$arr[$pass]}','{$arr[$email]}','{$timestamp}', '{$arr[$status]}', '{$arr[$level]}')";
 
         $result = mysqli_query($conn, $query);
         if ($result) {
@@ -63,7 +63,6 @@ if (isset($_POST['submit'])) {
         } else {
             echo mysqli_error($conn);
         }
-
     }
 }
 ?>
