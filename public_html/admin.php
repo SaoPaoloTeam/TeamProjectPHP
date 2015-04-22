@@ -12,9 +12,16 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
     ?>
 
     <form method="post">
-        <input type="button" name="add_article" value="Add article"/>
-        <input type="button" name="article_manager" value="Article manager"/>
-        <input type="button" name="user_manager" value="User manager"/>
+        <input class="main-btns" type="button" name="article_manager" value="Article manager" onclick="$('#test').load('../resources/templates/article-manager.php');$('test1').remove('#2')"/>
+        <input class="main-btns" type="button" name="user_manager" value="User manager" onclick="$('#test').load('../resources/templates/user-manager.php');$('test').remove('#1')"/>
+
+        <div id="test">
+            <?php require_once(TEMPLATES_PATH . '/article-manager.php'); ?>
+        </div>
+        <script>
+
+
+        </script>
     </form>
 
 
@@ -37,6 +44,7 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
 
 
 <a href="../resources/app_controls/logout.php">Logout</a>
+
 </body>
 </html>
 
