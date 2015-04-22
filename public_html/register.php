@@ -33,19 +33,19 @@ if (isset($_POST['submit'])) {
     }
     var_dump($uname);
     $uname = mysqli_real_escape_string($conn, $uname);
+    $timestamp = date('Y-m-d G:i:s');
     $queryUser = "SELECT username FROM Users WHERE username = '$uname';";
     $selected = mysqli_query($conn, $queryUser);
+
     if ($selected->num_rows) {
         echo "user exists";
     } else {
-        $date = new DateTime();
-        $query = sprintf('INSERT INTO Users (username, password, reg_date)
-                        VALUES ("%s", "%s", "%s")', mysqli_real_escape_string($conn, $uname),
-            mysqli_real_escape_string($conn, $pass),
-            mysqli_real_escape_string($conn, $date->getTimestamp()));
+
+        $query = "INSERT INTO Users (username, password, reg_date)
+                        VALUES ('{$uname}','{$pass}','{$timestamp}')";
 
         $result = mysqli_query($conn, $query);
-        var_dump($result);
+
     }
 
 

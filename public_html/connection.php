@@ -15,14 +15,14 @@ if (!$conn) {
 //reg_date TIMESTAMP
 //)";
 //
-////$query = mysqli_query($conn, $sql);
-////
-////if ($query) {
-////    echo "successfully created";
-////} else {
-////    echo "failed";
-////}
+//$query = mysqli_query($conn, $sql);
 //
+//if ($query) {
+//    echo "successfully created";
+//} else {
+//    echo "failed";
+//}
+
 //$date = time();
 //$name = "Gosho";
 //$pass = md5("pesho");
