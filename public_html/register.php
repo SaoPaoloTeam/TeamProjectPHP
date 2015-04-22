@@ -33,6 +33,9 @@ if (isset($_POST['submit'])) {
     }
     var_dump($uname);
     $uname = mysqli_real_escape_string($conn, $uname);
+    $pass = mysqli_real_escape_string($conn,$pass);
+    $pass = mysqli_real_escape_string($conn,$rpass);
+
     $timestamp = date('Y-m-d G:i:s');
     $queryUser = "SELECT username FROM Users WHERE username = '$uname';";
     $selected = mysqli_query($conn, $queryUser);
@@ -47,8 +50,6 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $query);
 
     }
-
-
 }
 ?>
 </body>
