@@ -2,7 +2,7 @@
 function takeArticleId(clicked_article){
 
     var article =  document.getElementById(clicked_article);
-    var parent = document.getElementById("content");
+    var parent = document.getElementById("articles");
     while (parent.firstChild){
         parent.removeChild(parent.firstChild);
     }
