@@ -11,18 +11,18 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
     require_once(RESOURCES_PATH . "/adminFunctions.php");
     ?>
 
-    <form method="post">
+
         <input class="main-btns" type="button" name="article_manager" value="Article manager" onclick="$('#test').load('../resources/templates/article-manager.php');$('test1').remove('#2')"/>
         <input class="main-btns" type="button" name="user_manager" value="User manager" onclick="$('#test').load('../resources/templates/user-manager.php');$('test').remove('#1')"/>
 
-        <div id="test">
+        <section id="container">
             <?php require_once(TEMPLATES_PATH . '/article-manager.php'); ?>
-        </div>
+        </section>
         <script>
 
 
         </script>
-    </form>
+
 
 
 
