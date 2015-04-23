@@ -25,11 +25,12 @@ if (isset($_POST['topic-submit'])) {
         exit();
     } else {
         $query = "INSERT INTO Articles (author, title, content, published_at, updated_at, tag)
-                        VALUES ('{$arr[$author]}','{$arr[$title]}','{$arr[$content]}','{$timestamp}','{$timestamp}', '{$arr[$tag]}')";
+                        VALUES ('{$arr[$author]}','{$arr[$title]}','{$arr[$content]}',
+                        '{$timestamp}','{$timestamp}', '{$arr[$tag]}')";
 
         $result = mysqli_query($conn, $query);
         if ($result) {
-            echo "Success";
+            unset($_SESSION['data']);
             redirect_to("../../public_html/index.php");
             exit();
         } else {

@@ -40,32 +40,40 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
         </section>
         <?php endif; ?>
         <?php
-        $queryArticles = "SELECT title, author, content FROM Articles;";
-        $selected = mysqli_query($conn, $queryArticles);
+        if (!isset($_SESSION['data'])) {
+            $_SESSION['data'] = [];
+            $queryArticles = "SELECT title, author, content, tag FROM Articles;";
+            $selected = mysqli_query($conn, $queryArticles);
+            if($selected) {
+                while ($data = mysqli_fetch_assoc($selected)) {
+                    array_push($_SESSION['data'], $data);
+                }
+            } else {
+                echo mysqli_error($conn);
+            }
+        }
         ?>
-        <?php if ($selected): ?>
-            <?php while($data = mysqli_fetch_assoc($selected)): ?>
+        <?php if (count($_SESSION['data']) > 0): ?>
+            <?php foreach($_SESSION['data'] as $data): ?>
                 <article class="topic">
                     <header><?php echo $data['title']; ?></header>
                     <p class="topic-content"><?php echo $data['content']; ?></p>
                     <footer>
                         <div class="author">Author: <?php echo $data['author']; ?></div>
+                        <div class="tag"><?php echo $data['tag']; ?></div>
                         <div class="read-more">
                             <a href="#">Read More</a>
                         </div>
                     </footer>
                 </article>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         <?php endif; ?>
     </section>
     <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
 
 </main>
-
 <!--Loading Footer-->
-<?php
-require_once(TEMPLATES_PATH . "/footer.php");
-?>
+<?php require_once(TEMPLATES_PATH . "/footer.php"); ?>
 </div>
 <script src="js/user-functions.js"></script>
 </body>
