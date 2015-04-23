@@ -1,6 +1,6 @@
 
 <?php require_once(realpath(dirname(__FILE__) . "/../config.php")); ?>
-<div id="article-manager">
+<div id="article-manager" style="display: none;">
     <table>
         <tr>
             <td>Titles</td>
