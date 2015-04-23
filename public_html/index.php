@@ -53,8 +53,31 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
             }
         }
         ?>
+        <?php
+        $articlesCount = count($_SESSION['data']);
+        $articlesPerPage = 4;
+        $totalPages = (int)ceil($articlesCount / $articlesPerPage);
+        $currentPage = 0;
+        if (isset($_GET['page'])) {
+            $currentPage = htmlspecialchars($_GET['page']);
+            $patt = "/\\D+/";
+            if (preg_match($patt, $currentPage) > 0) {
+                echo "Don't try shit pls";
+            } else {
+                $currentPage = (int)$currentPage;
+            }
+        }
+        if ($currentPage == $totalPages - 1) {
+            $articlesPerPage = $articlesCount % $articlesPerPage;
+        }
+
+        ?>
         <?php if (count($_SESSION['data']) > 0): ?>
-            <?php foreach($_SESSION['data'] as $data): ?>
+            <?php for($i = 0; $i < $articlesPerPage; $i++): ?>
+                <?php
+                    $currIndex = $i + ($currentPage * 4);
+                    $data = $_SESSION['data'][$currIndex];
+                ?>
                 <article class="topic">
                     <header><?php echo $data['title']; ?></header>
                     <p class="topic-content"><?php echo $data['content']; ?></p>
@@ -66,8 +89,17 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                         </div>
                     </footer>
                 </article>
-            <?php endforeach; ?>
+            <?php endfor; ?>
         <?php endif; ?>
+        <section class="pages">
+            <?php for($p = 0; $p < $totalPages; $p++): ?>
+                <div class="page-div">
+                    <a href="index.php?page=<?php echo $p; ?>" class="page-link">
+                        <?php echo $p + 1;?>
+                    </a>
+                </div>
+            <?php endfor; ?>
+        </section>
     </section>
     <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
 
