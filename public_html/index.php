@@ -12,6 +12,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
 <?php require_once(TEMPLATES_PATH . "/header.php"); ?>
 
 <main>
+    <section class="content-holder">
     <?php if ($_SESSION['level'] == 1): ?>
         <section>
             <div>
@@ -36,13 +37,19 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
         ?>
         <?php if ($selected): ?>
             <?php while($data = mysqli_fetch_assoc($selected)): ?>
-                <article style="width: 100%">
-                    <p style="width: 90%; height: auto">Title: <?php echo $data['title']; ?></p>
-                    <p style="width: 90%; height: auto">Content: <?php echo $data['content']; ?></p>
-                    <p style="width: 90%; height: auto">Author: <?php echo $data['author']; ?></p>
+                <article class="topic">
+                    <header><?php echo $data['title']; ?></header>
+                    <p class="topic-content"><?php echo $data['content']; ?></p>
+                    <footer>
+                        <div class="author">Author: <?php echo $data['author']; ?></div>
+                        <div class="read-more">
+                            <a href="#">Read More</a>
+                        </div>
+                    </footer>
                 </article>
             <?php endwhile; ?>
         <?php endif; ?>
+    </section>
     <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
 
 </main>

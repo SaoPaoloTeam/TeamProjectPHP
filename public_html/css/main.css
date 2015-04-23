@@ -28,7 +28,8 @@ header > nav {
     font: bold 17px sans-serif;
 }
 
-/*login start*/
+/* LOGIN START */
+
 header > nav > form > .user-login {
     height: 28px;
     margin: 8px 3px 7px 0;
@@ -50,41 +51,158 @@ header > nav > form > .login-submit {
     border: none;
     color: #FFF;
     font: bold 17px sans-serif;
-    padding: 4px 10px;
-    margin: 3px 10px 7px 5px;
+    padding: 4px 10px 3px 10px;
+    margin: 7px 10px 7px 5px;
+    cursor: pointer;
 }
-/*login end*/
+
+header > nav > form > .login-submit:hover {
+    background: #FFF;
+    color: #F02;
+}
+
+/* LOGIN END */
 
 header > nav > .register {
     background: #F02;
     color: #FFF;
     text-decoration: none;
     padding: 5px 10px;
-    margin: 7px 10px 7px 5px;
+    margin: 8px 10px 7px 5px;
+    line-height: 1.2
+}
+
+header > nav > .register:hover {
+    background: #FFF;
+    color: #F02;
 }
 
 /*--------------*/
 /*  HEADER END  */
 /*--------------*/
 
+/*---------------*/
+/* CONTENT START */
+/*---------------*/
+
 main {
     width: 100%;
     height: auto;
-    border: 2px solid black;
     margin: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
 }
 
-main > #content {
-    display: inline-block;
+main > .content-holder {
     width: 70%;
     height: 95%;
 }
 
-main > aside {
-    display: inline-block;
-    width: 20%;
-    height: 95%;
+main > .content-holder > .topic {
+    width: 90%;
+    height: auto;
+    margin: 10px auto 30px;
+    box-shadow: 5px 5px 20px #CCC;
 }
+
+.topic > header {
+    background: #DDD;
+    color: #111;
+    text-shadow: 2px 2px 2px #FFF;
+    height: 40px;
+    margin: 0;
+    font: bold 30px sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.topic > .topic-content {
+    width: 90%;
+    margin: 5px auto;
+    font: 18px sans-serif;
+}
+
+.topic > footer {
+    background: #DDD;
+    border: none;
+    color: #111;
+    height: 35px;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.topic > footer > .author {
+    font: bold 25px sans-serif;
+    width: 30%;
+    height: 35px;
+}
+
+.topic > footer > .read-more {
+    margin: 9px 0 0 0;
+    font: bold 14px sans-serif;
+}
+
+.topic > footer > .read-more > a {
+    background: #F02;
+    color: #FFF;
+    text-decoration: none;
+    padding: 10px 25px;
+}
+
+.topic > footer > .read-more > a:hover {
+    background: #D02;
+    color: #FFF;
+    text-decoration: none;
+}
+
+/*---------------*/
+/*  CONTENT END  */
+/*---------------*/
+
+/*---------------*/
+/*  ASIDE START  */
+/*---------------*/
+
+main > aside {
+    width: 20%;
+    margin: 10px;
+}
+
+main > aside > ul > li {
+    padding: 20px 7px 20px 0;
+    text-align: left;
+    background: #000;
+    border-left: 7px solid #000;
+}
+
+main > aside > ul > li > a {
+    color: #FFF;
+    padding: 10px 0 10px 30px;
+    font: 600 18px sans-serif;
+    text-decoration: none;
+}
+
+main > aside > ul > li:hover {
+    background: rgba(196, 196, 196, 0.4);
+    border-left: 7px solid #F00;
+}
+
+main > aside > ul > li:hover > a {
+    color: #000;
+    font-weight: 600;
+}
+
+/*-------------*/
+/*  ASIDE END  */
+/*-------------*/
+
+
+/*--------------*/
+/* FOOTER START */
+/*--------------*/
 
 footer {
     width: 100%;
@@ -92,3 +210,7 @@ footer {
     border: 2px solid black;
     margin: 10px;
 }
+
+/*------------*/
+/* FOOTER END */
+/*------------*/
