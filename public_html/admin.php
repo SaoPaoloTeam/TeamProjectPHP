@@ -12,8 +12,8 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
     ?>
 
 
-        <input class="main-btns" type="button" name="article_manager" value="Article manager" onclick="$('#test').load('../resources/templates/article-manager.php');$('test1').remove('#2')"/>
-        <input class="main-btns" type="button" name="user_manager" value="User manager" onclick="$('#test').load('../resources/templates/user-manager.php');$('test').remove('#1')"/>
+        <input class="main-btns" type="button" name="article_manager" value="Article manager" onclick="$('#container').load('../resources/templates/article-manager.php');$('test1').remove('#content-manager')"/>
+        <input class="main-btns" type="button" name="user_manager" value="User manager" onclick="$('#container').load('../resources/templates/user-manager.php');$('test').remove('#article-manager')"/>
 
         <section id="container">
             <?php require_once(TEMPLATES_PATH . '/article-manager.php'); ?>

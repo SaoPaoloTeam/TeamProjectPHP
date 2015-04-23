@@ -1,6 +1,6 @@
 
 <?php require_once(realpath(dirname(__FILE__) . "/../config.php")); ?>
-<div id="2">
+<div id="user-manager">
     <table>
         <tr>
             <td>Titles</td>
