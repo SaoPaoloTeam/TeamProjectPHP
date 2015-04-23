@@ -17,3 +17,6 @@ function escapeAll($arr,$conn){
     }
     return $finalArr;
 }
+
+
+

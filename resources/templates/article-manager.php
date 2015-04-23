@@ -1,7 +1,6 @@
 
 <?php require_once(realpath(dirname(__FILE__) . "/../config.php")); ?>
 <div id="article-manager">
-
     <table>
         <tr>
             <td>Titles</td>
@@ -28,6 +27,4 @@
             <?php endwhile; ?>
         <?php endif; ?>
     </table>
-
-
 </div>

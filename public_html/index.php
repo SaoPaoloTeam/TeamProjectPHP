@@ -9,19 +9,25 @@ require_once(RESOURCES_PATH."../app_controls/session.php");
 require_once(TEMPLATES_PATH . "/head.php"); ?>
 
 <div class="wrapper">
-<?php require_once(TEMPLATES_PATH . "/header.php"); ?>
+    <?php
+    if($_SESSION['level']==0){
+        require_once(TEMPLATES_PATH . "/header.php");
+    }else if($_SESSION['level']==1) {
+        require_once(TEMPLATES_PATH . "/headerLoggedIn.php");
+    }
+    else if($_SESSION['level']==2){
+        require_once(TEMPLATES_PATH . "/adminHeader.php");
+    }
+
+    ?>
 
 <main>
     <section class="content-holder">
-    <?php if ($_SESSION['level'] == 1): ?>
+        <?php echo "LEVEL 2";?>
+    <?php if ($_SESSION['level'] == 2): ?>
+
         <section>
-            <div>
-                <?php
-                    echo "Hello," . $_SESSION['user'];
-                    echo "<a href='../resources/app_controls/logout.php'>Logout</a>";
-                ?>
-                <div onclick="showMenu()">Write new</div>
-            </div>
+
             <div id="form-div" style="display: none">
                 <form action="../resources/app_controls/add_article.php" method="post">
                     <input type="text" name="title" placeholder="Topic title.."/>
