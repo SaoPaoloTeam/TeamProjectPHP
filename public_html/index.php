@@ -6,11 +6,10 @@ require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 require_once(RESOURCES_PATH."../app_controls/session.php");
 //$config['db'];
 
-require_once(TEMPLATES_PATH . "/head.php");
-require_once(TEMPLATES_PATH . "/header.php");
+require_once(TEMPLATES_PATH . "/head.php"); ?>
 
-
-?>
+<div class="wrapper">
+<?php require_once(TEMPLATES_PATH . "/header.php"); ?>
 
 <main>
     <?php if ($_SESSION['level'] == 1): ?>
@@ -52,7 +51,7 @@ require_once(TEMPLATES_PATH . "/header.php");
 <?php
 require_once(TEMPLATES_PATH . "/footer.php");
 ?>
-
+</div>
 <script src="js/user-functions.js"></script>
 </body>
 </html>
