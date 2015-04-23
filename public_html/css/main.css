@@ -158,6 +158,29 @@ main > .content-holder > .topic {
     text-decoration: none;
 }
 
+.pages {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.page-link {
+    background: #F02;
+    color: #FFF;
+    text-decoration: none;
+    font: bold 18px sans-serif;
+    padding: 3px 10px;
+    margin: 0 3px;
+}
+
+.page-link:hover {
+    background: #FFF;
+    color: #F00;
+    box-shadow: 1px 1px #CCC;
+}
+
 /*---------------*/
 /*  CONTENT END  */
 /*---------------*/
