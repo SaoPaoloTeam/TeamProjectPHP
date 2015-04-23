@@ -26,6 +26,14 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                 <form action="../resources/app_controls/add_article.php" method="post">
                     <input type="text" name="title" placeholder="Topic title.."/>
                     <textarea name="content" cols="30" rows="10" placeholder="Topic text"></textarea>
+                    <select name="tags">
+                        <option value="nightwatch">Night's Watch</option>
+                        <option value="dorne">Dorne</option>
+                        <option value="north">North</option>
+                        <option value="freecities">The Free Cities</option>
+                        <option value="slaver">Slaver's Bay</option>
+                        <option value="iron">The Iron Islands</option>
+                    </select>
                     <input type="submit" name="topic-submit" value="Submit"/>
                 </form>
             </div>

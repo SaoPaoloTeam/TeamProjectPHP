@@ -10,9 +10,10 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
 if (isset($_POST['topic-submit'])) {
     $author = $_SESSION['user'];
     $title = processInput($_POST['title']);
+    $tag = processInput($_POST['tags']);
     $content = processInput($_POST['content']);
 
-    $arr = escapeAll([$author, $title, $content], $conn);
+    $arr = escapeAll([$author, $title, $content, $tag], $conn);
     $timestamp = date('Y-m-d G:i:s');
 
     $queryTitle = "SELECT title FROM Articles WHERE title = '$title';";
@@ -23,8 +24,8 @@ if (isset($_POST['topic-submit'])) {
         redirect_to("../../public_html/index.php");
         exit();
     } else {
-        $query = "INSERT INTO Articles (author, title, content, published_at, updated_at)
-                        VALUES ('{$arr[$author]}','{$arr[$title]}','{$arr[$content]}','{$timestamp}','{$timestamp}')";
+        $query = "INSERT INTO Articles (author, title, content, published_at, updated_at, tag)
+                        VALUES ('{$arr[$author]}','{$arr[$title]}','{$arr[$content]}','{$timestamp}','{$timestamp}', '{$arr[$tag]}')";
 
         $result = mysqli_query($conn, $query);
         if ($result) {
