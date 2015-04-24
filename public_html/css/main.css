@@ -180,6 +180,9 @@ main > .content-holder > .topic {
     color: #F00;
     box-shadow: 1px 1px #CCC;
 }
+/*--------------------*/
+/* contact page start */
+/*--------------------*/
 .contact {
 
     width: 50%;
@@ -248,9 +251,46 @@ main > .content-holder > .topic {
     margin-left: 40px;
     margin-top: 20px;
     font-size: 20px;
+}
+/*--------------------*/
+/* contact page end-- */
+/*--------------------*/
+/*--------------------*/
+/* about  page start-- */
+/*--------------------*/
+.about-page{
+    border: 1px solid black;
+    width: 50%;
+    margin: 0 auto;
+    height: 700px;
+    background-image: url("../images/aboutUsWall.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    margin-top: 20px;
+
 
 }
-
+.about-page h1{
+    margin-left: 380px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+.about-page p{
+font-size: 18px;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.about-page p:first-of-type{
+    margin-top: -90px;
+}
+.about-page p:last-of-type{
+    margin-top: -40px;
+}
+/*--------------------*/
+/* about  page end- */
+/*--------------------*/
 
 
 /*---------------*/
