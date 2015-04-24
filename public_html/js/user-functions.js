@@ -22,3 +22,11 @@ function showCreateNewArticle(){
     document.getElementById('article-manager').style.display = 'none';
     document.getElementById('user-manager').style.display = 'none';
 }
+
+
+function getContent(content,title,id){
+    document.getElementById('content-edit').value = content;
+    document.getElementById('title-edit').value = title;
+    document.getElementById('article-id').value = id;
+
+}

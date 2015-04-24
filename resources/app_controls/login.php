@@ -25,7 +25,8 @@ if (isset($_POST['submit'])) {
             redirect_to("../../public_html/index.php");
         }
     }
-    else{
-     echo   'NOT A USER';
+    else {
+        redirect_to("../../public_html/index.php?login=0");
+
     }
 }
