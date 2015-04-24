@@ -289,6 +289,7 @@ main > .content-holder > .topic {
     height: 100px;
     margin-left: 20px;
     margin-top: 20px;
+    resize: none;
 
 
 }

@@ -19,6 +19,15 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
     ?>
 
     <main>
+        <?php
+        if ($_SESSION['level'] == 0) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 1) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 2) {
+            require_once(TEMPLATES_PATH . "/aside-navigation-admin.php");
+        }
+        ?>
         <section class="content-holder">
             <?php
             if (isset($_GET['title'])) {
