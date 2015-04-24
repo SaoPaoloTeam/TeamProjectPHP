@@ -26,13 +26,15 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
 
 <input class="main-btns" type="button" name="article_manager" value="Article manager"
        onclick="showArticleManager()"/>
-<input class="main-btns" type="button" name="user_manager" value="User manager"
-       onclick="showUserManager()"/>
-<input class="main-btns" type="button" name="create_new" value="Create new article"
-       onclick="showCreateNewArticle()"/>
+    <input class="main-btns" type="button" name="user_manager" value="User manager"
+           onclick="showUserManager()"/>
+    <input class="main-btns" type="button" name="create_new" value="Create new article"
+           onclick="showCreateNewArticle()"/>
 
 <section id="container">
     <?php require_once(TEMPLATES_PATH . '/article-manager.php'); ?>
+    <?php require_once(TEMPLATES_PATH . "/user-manager.php") ?>
+    <?php require_once(TEMPLATES_PATH . "/adminSidePanel.php"); ?>
 </section>
 
     <section>
@@ -53,9 +55,7 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
             </form>
         </div>
     </section>
-<?php require_once(TEMPLATES_PATH . "/article-manager.php") ?>
-<?php require_once(TEMPLATES_PATH . "/user-manager.php") ?>
-<?php require_once(TEMPLATES_PATH . "/adminSidePanel.php"); ?>
+
 <?php require_once(TEMPLATES_PATH . "/adminFooter.php"); ?>
 
 </body>
