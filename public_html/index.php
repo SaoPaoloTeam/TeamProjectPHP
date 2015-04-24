@@ -15,10 +15,19 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
     } else if ($_SESSION['level'] == 2) {
         require_once(TEMPLATES_PATH . "/adminHeader.php");
     }
-
     ?>
 
     <main>
+
+        <?php
+        if ($_SESSION['level'] == 0) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 1) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 2) {
+            require_once(TEMPLATES_PATH . "/aside-navigation-admin.php");
+        }
+        ?>
         <section class="content-holder">
             <?php if (isset($_GET['login']) && $_GET['login'] == 0): ?>
                 <div id="login-failed"
@@ -73,30 +82,44 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     $currentPage = (int)$currentPage;
                 }
             }
-            if ($currentPage == $totalPages - 1) {
+
+            if ($currentPage == $totalPages - 1 && $articlesCount % $articlesPerPage != 0) {
                 $articlesPerPage = $articlesCount % $articlesPerPage;
             }
 
-
-            ?>
-            <?php if (count($articleArray) > 0): ?>
+            if (count($articleArray) > 0): ?>
                 <?php for ($i = 0; $i < $articlesPerPage; $i++): ?>
                     <?php
                     $currIndex = $i + ($currentPage * 4);
                     $data = $articleArray[$currIndex];
+                    $title = $data['title'];
+                    $title = str_replace(' ', '+', $title);
+
 
                     $currTag = $data['tag'];
+
+                    $tag = "";
+                    switch ($currTag) {
+                        case "nightwatch": $tag = "Night's Watch"; break;
+                        case "freecities": $tag = "The Free Cities"; break;
+                        case "dorne": $tag = "Dorne"; break;
+                        case "iron": $tag = "The Iron Islands"; break;
+                        case "north": $tag = "North"; break;
+                        case "slaver":
+                                  default: $tag = "Slaver's Bay"; break;
+                    }
+
                     $dateAdded = date('jS M, Y', DateTime::createFromFormat('Y-m-d H:i:s', $data['published_at'])->getTimestamp());
                     ?>
                     <article class="topic">
-                        <header><?php echo $data['title']; ?></header>
-                        <p class="topic-content"><?php echo $data['content']; ?></p>
+                        <header><?php echo $title; ?></header>
+                        <p class="topic-content"><?php echo "<pre>" . $data['content'] . "</pre>"; ?></p>
                         <footer>
-                            <div class="author">Author: <?php echo $data['author']; ?></div>
-                            <div class="tag"><?php echo $data['tag']; ?></div>
+                            <div class="author"><div class="author-black">Author:</div><div class="author-name"> <?php echo $data['author']; ?></div></div>
+                            <div class="tag"><?php echo $tag; ?></div>
                             <div class="date"><?php echo $dateAdded ?></div>
                             <div class="read-more">
-                                <a href="viewArticle.php?id=<?php echo $currIndex ?>">Read More</a>
+                                <a href="viewArticle.php?title=<?php echo $title ?>">Read More</a>
                             </div>
                         </footer>
                     </article>

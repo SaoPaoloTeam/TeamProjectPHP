@@ -1,10 +1,10 @@
-function showMenu() {
-    document.getElementById("form-div").style.display = 'block';
-    console.log("TEST");
+function showMenu(id) {
+    document.getElementById(id).style.display = 'block';
+    //console.log("TEST");
 }
 
 function showArticleManager(){
-
+    console.log('article');
     document.getElementById('article-manager').style.display = 'block';
     document.getElementById('user-manager').style.display = 'none';
     document.getElementById('form-div').style.display = 'none';
@@ -18,7 +18,7 @@ function showUserManager(){
 }
 
 function showCreateNewArticle(){
-    showMenu();
+    showMenu('form-div');
     document.getElementById('article-manager').style.display = 'none';
     document.getElementById('user-manager').style.display = 'none';
 }

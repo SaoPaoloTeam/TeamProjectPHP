@@ -2,7 +2,7 @@
 <?php require_once(realpath(dirname(__FILE__) . "/../config.php")); ?>
 <div id="user-manager" style="display: none">
     <table>
-        <tr>
+        <tr class="title-table">
             <td>Titles</td>
             <td>Status</td>
             <td>Actions</td>
