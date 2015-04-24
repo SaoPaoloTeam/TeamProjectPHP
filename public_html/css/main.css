@@ -1,3 +1,8 @@
+@font-face {
+    src: url('../fonts/Knights%20Quest.ttf');
+    font-family: knights;
+}
+
 .wrapper {
     width: 1200px;
     margin: 0 auto;
@@ -12,9 +17,14 @@ header  {
     margin: 0 10px;
 }
 
+header > nav > .logo {
+    font: bold 40px knights, serif;
+    margin: -3px 0 0 30px;
+}
+
 header > .bg-holder {
     height: 180px;
-    background: url("../images/header-bg.jpg")
+    background: #CCC url("../images/header-bg.jpg")
     no-repeat center center;
 }
 
@@ -23,14 +33,14 @@ header > nav {
     height: 45px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-end;
+    justify-content: space-between;
     background: #CCC;
     font: bold 17px sans-serif;
 }
 
 /* LOGIN START */
 
-header > nav > form > .user-login {
+header > nav > section > form > .user-login {
     height: 28px;
     margin: 8px 3px 7px 0;
     border: none;
@@ -40,13 +50,18 @@ header > nav > form > .user-login {
     padding-left: 22px;
 }
 
-header > nav > form > .user-login[type="password"] {
+header > nav > section > form > .user-login[type="password"] {
     background: #FFF url("../images/pass-icon.jpg")
     no-repeat left center/18px 18px;
 
 }
 
-header > nav > .user-logout {
+header > nav > section {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+header > nav > section > .user-logout {
     background: #F02;
     border: none;
     color: #FFF;
@@ -57,12 +72,12 @@ header > nav > .user-logout {
     text-decoration: none;
 }
 
-header > nav > .user-logout:hover {
+header > nav > section > .user-logout:hover {
     color: #F00;
     background: #FFF;
 }
 
-header > nav > .hello-box {
+header > nav > section > .hello-box {
     background: #000;
     color: #FFF;
     height: 32px;
@@ -72,7 +87,7 @@ header > nav > .hello-box {
     line-height: 143%;
 }
 
-header > nav > form > .login-submit {
+header > nav > section > form > .login-submit {
     background: #F02;
     border: none;
     color: #FFF;
@@ -82,14 +97,14 @@ header > nav > form > .login-submit {
     cursor: pointer;
 }
 
-header > nav > form > .login-submit:hover {
+header > nav > section > form > .login-submit:hover {
     background: #FFF;
     color: #F02;
 }
 
 /* LOGIN END */
 
-header > nav > .register {
+header > nav > section > .register {
     background: #F02;
     color: #FFF;
     text-decoration: none;
