@@ -291,6 +291,54 @@ main > .content-holder > .topic {
     font-size: 20px;
 
 }
+.btns-holder{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+.main-btns{
+    word-wrap: break-word;
+    text-align: center;
+    width: 100px;
+    margin: 2%;
+    height: 100px;
+    cursor: pointer;
+}
+#form-div{
+    display: none;
+    width: 75%;
+    align-self: center;
+    margin: 0 auto;
+}
+
+#form-div input[type='text']{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+#form-div textarea{
+    width: 100%;
+    resize: none;
+}
+#article-manager, #user-manager{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+#article-manager>table td,#user-manager>table td{
+    border: 1px solid black;
+}
+table{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.title-table{
+    font-weight: bold;
+}
 
 
 
