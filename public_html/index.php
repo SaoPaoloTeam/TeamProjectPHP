@@ -82,6 +82,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     $currentPage = (int)$currentPage;
                 }
             }
+
             if ($currentPage == $totalPages - 1 && $articlesCount % $articlesPerPage != 0) {
                 $articlesPerPage = $articlesCount % $articlesPerPage;
             }
@@ -95,14 +96,19 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     $title = str_replace(' ', '+', $title);
 
 
-                    $tag = $data['tag'] == "nightwatch" ? "Night's Watch"   :
-                           $data['tag'] == "north"      ? "The North"       :
-                           $data['tag'] == "iron"       ? "The Iron Islands":
-                           $data['tag'] == "dorne"      ? "Dorne"           :
-                           $data['tag'] == "freecities" ? "The Free Cities" :
-                                                          "Slaver's Bay";
-
                     $currTag = $data['tag'];
+
+                    $tag = "";
+                    switch ($currTag) {
+                        case "nightwatch": $tag = "Night's Watch"; break;
+                        case "freecities": $tag = "The Free Cities"; break;
+                        case "dorne": $tag = "Dorne"; break;
+                        case "iron": $tag = "The Iron Islands"; break;
+                        case "north": $tag = "North"; break;
+                        case "slaver":
+                                  default: $tag = "Slaver's Bay"; break;
+                    }
+
                     $dateAdded = date('jS M, Y', DateTime::createFromFormat('Y-m-d H:i:s', $data['published_at'])->getTimestamp());
                     ?>
                     <article class="topic">
