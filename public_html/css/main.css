@@ -164,8 +164,10 @@ main > .content-holder > .topic {
 
 .topic > footer > .author {
     font: bold 25px sans-serif;
-    width: 30%;
+    width: auto;
     height: 35px;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .topic > footer > .read-more {
@@ -207,12 +209,6 @@ main > .content-holder > .topic {
     background: #FFF;
     color: #F00;
     box-shadow: 1px 1px #CCC;
-}
-
-
-.author {
-    display: flex;
-    flex-flow: row wrap;
 }
 
 .author-black {
