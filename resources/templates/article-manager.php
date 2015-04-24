@@ -1,10 +1,10 @@
 <?php require_once(realpath(dirname(__FILE__) . "/../config.php")); ?>
 <div id="article-manager" style="display: none;">
     <table>
-        <tr>
+        <tr class="title-table">
             <td>Titles</td>
             <td>Status</td>
-            <td colspan="2">Actions</td>
+            <td colspan="3">Actions</td>
         </tr>
 
         <?php
