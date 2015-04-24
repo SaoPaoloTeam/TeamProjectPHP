@@ -78,7 +78,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                             <div class="tag"><?php echo $data['tag']; ?></div>
                             <div class="date"><?php echo $dateAdded ?></div>
                             <div class="read-more">
-                                <a href="#">Read More</a>
+                                <a href="viewArticle.php?id=<?php echo $currIndex ?>">Read More</a>
                             </div>
                         </footer>
                     </article>

@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer>
+<footer class="page-footer">
         <div class="footer-links">
             <a href="#">About</a>
             <a href="#">Register</a>
