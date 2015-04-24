@@ -325,6 +325,11 @@ main > .content-holder > .topic {
     margin: 2%;
     height: 100px;
     cursor: pointer;
+    border-radius: 10px;
+    border: none;
+}
+.main-btns:focus{
+    outline: none;
 }
 #form-div{
     display: none;
