@@ -2,9 +2,7 @@
 // load up your config file
 require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 require_once(RESOURCES_PATH."../app_controls/session.php");
-//$config['db'];
-
-
+//$config['db'];    
 ?>
 
 <div class="wrapper">
@@ -20,7 +18,15 @@ require_once(RESOURCES_PATH."../app_controls/session.php");
         require_once(TEMPLATES_PATH . "/adminHeader.php");
     }?>
     <main>
-        <?php require_once(TEMPLATES_PATH . "/aside-navigation.php"); ?>
+        <?php
+        if ($_SESSION['level'] == 0) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 1) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 2) {
+            require_once(TEMPLATES_PATH . "/aside-navigation-admin.php");
+        }
+        ?>
 
     <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
 

@@ -20,7 +20,15 @@ require_once(RESOURCES_PATH . "../app_controls/session.php");
 
     ?>
     <main>
-        <?php require_once(TEMPLATES_PATH . "/aside-navigation.php"); ?>
+        <?php
+        if ($_SESSION['level'] == 0) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 1) {
+            require_once(TEMPLATES_PATH . "/aside-navigation.php");
+        } else if ($_SESSION['level'] == 2) {
+            require_once(TEMPLATES_PATH . "/aside-navigation-admin.php");
+        }
+        ?>
         <div class="contact">
 
 

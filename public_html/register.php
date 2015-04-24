@@ -17,7 +17,15 @@ require_once(TEMPLATES_PATH . "/head.php");
     }
     ?>
 <main>
-    <?php require_once(TEMPLATES_PATH . "/aside-navigation.php"); ?>
+    <?php
+    if ($_SESSION['level'] == 0) {
+        require_once(TEMPLATES_PATH . "/aside-navigation.php");
+    } else if ($_SESSION['level'] == 1) {
+        require_once(TEMPLATES_PATH . "/aside-navigation.php");
+    } else if ($_SESSION['level'] == 2) {
+        require_once(TEMPLATES_PATH . "/aside-navigation-admin.php");
+    }
+    ?>
 
     <form action="register.php" method="post">
         <input type="text" name="username"/>
