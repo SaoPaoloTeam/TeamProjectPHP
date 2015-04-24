@@ -84,19 +84,21 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     <?php
                     $currIndex = $i + ($currentPage * 4);
                     $data = $articleArray[$currIndex];
+                    $title = $data['title'];
+                    $title = str_replace(' ', '+', $title);
 
                     $currTag = $data['tag'];
                     $dateAdded = date('jS M, Y', DateTime::createFromFormat('Y-m-d H:i:s', $data['published_at'])->getTimestamp());
                     ?>
                     <article class="topic">
-                        <header><?php echo $data['title']; ?></header>
+                        <header><?php echo $title; ?></header>
                         <p class="topic-content"><?php echo $data['content']; ?></p>
                         <footer>
                             <div class="author">Author: <?php echo $data['author']; ?></div>
                             <div class="tag"><?php echo $data['tag']; ?></div>
                             <div class="date"><?php echo $dateAdded ?></div>
                             <div class="read-more">
-                                <a href="viewArticle.php?id=<?php echo $currIndex ?>">Read More</a>
+                                <a href="viewArticle.php?title=<?php echo $title ?>">Read More</a>
                             </div>
                         </footer>
                     </article>
