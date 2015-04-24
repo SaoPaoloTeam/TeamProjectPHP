@@ -45,7 +45,22 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
             }
             ?>
             <?php
-            $articlesCount = count($_SESSION['data']);
+            $display = 'all';
+            $articleArray = [];
+            if (isset($_GET['cat'])) {
+                $display = $_GET['cat'];
+                if ($display != 'all') {
+                    $articleArray = sortByTags($display);
+                } else {
+                    $articleArray = $_SESSION['data'];
+                }
+            } else {
+                $articleArray = $_SESSION['data'];
+            }
+
+            $articlesCount = count($articleArray);
+
+
             $articlesPerPage = 4;
             $totalPages = (int)ceil($articlesCount / $articlesPerPage);
             $currentPage = 0;
@@ -62,12 +77,15 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                 $articlesPerPage = $articlesCount % $articlesPerPage;
             }
 
+
             ?>
-            <?php if (count($_SESSION['data']) > 0): ?>
+            <?php if (count($articleArray) > 0): ?>
                 <?php for ($i = 0; $i < $articlesPerPage; $i++): ?>
                     <?php
                     $currIndex = $i + ($currentPage * 4);
-                    $data = $_SESSION['data'][$currIndex];
+                    $data = $articleArray[$currIndex];
+
+                    $currTag = $data['tag'];
                     $dateAdded = date('jS M, Y', DateTime::createFromFormat('Y-m-d H:i:s', $data['published_at'])->getTimestamp());
                     ?>
                     <article class="topic">
@@ -87,7 +105,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
             <section class="pages">
                 <?php for ($p = 0; $p < $totalPages; $p++): ?>
                     <div class="page-div">
-                        <a href="index.php?page=<?php echo $p; ?>" class="page-link">
+                        <a href="index.php?page=<?php echo $p; ?>&cat=<?php echo $display ?>" class="page-link">
                             <?php echo $p + 1; ?>
                         </a>
                     </div>

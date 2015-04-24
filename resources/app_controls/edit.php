@@ -24,7 +24,7 @@ if (isset($_POST['topic-submit'])) {
 
     if ($selected) {
         echo "UPDATED";
-        unset($_SESSION['data']); //МАЛКО КПК! ЕДО ВИЖ ТАКА ДОБРЕ ЛИ, ЧЕ НЕ ЗНАМ ЗА КАКВО Я ПОЛЗВАШ ТАЗИ ПРОМЕНЛИВА
+        unset($_SESSION['data']);
         redirect_to("../../public_html/admin.php");
         exit();
 

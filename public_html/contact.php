@@ -9,6 +9,7 @@ require_once(TEMPLATES_PATH . "/header.php");
 
 ?>
 <main class="contact">
+
     <div class="contact-info">
         <h1>Contact us</h1>
         <input type="text" placeholder="Your name"/>
@@ -22,12 +23,12 @@ require_once(TEMPLATES_PATH . "/header.php");
         </div>
 
         <div class="coordinates">
-            <h3>Find us</h3>
+            <h3>Find us:</h3>
             <ul class="info">
-                <li>Sofia, Izgrev residential area, 15-17 Tintyava str, fl. 2</li>
+                <li></li>
                 <li><span>Phone:</span> +359 888 859 859</li>
-                <li><span>Post code:</span> 1113 </li>
-                <li><span>Email:</span> info@softuni.bg</li>
+                <li><span>Post code:</span>XXX </li>
+                <li><span>Email:</span> GOT@HBO.com</li>
             </ul>
         </div>
     </div>
