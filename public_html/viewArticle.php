@@ -21,19 +21,28 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
     <main>
         <section class="content-holder">
             <?php
-            if (isset($_GET['id'])) {
-                $currID = htmlspecialchars($_GET['id']);
-                $patt = "/\\D+/";
-                if (preg_match($patt, $currID) > 0) {
-                    echo "<p style='font-size: 25px'>NO SUCH ARTICLE</p>";
+            if (isset($_GET['title'])) {
+                $currTitle = htmlspecialchars($_GET['title']);
+                $patt = "/[^a-zA-Z0-9\\s]/";
+                if (preg_match($patt, $currTitle) > 0) {
+                    echo "not a valid article name";
                     header("Refresh: 1.5, url=index.php");
                     exit();
-                } else {
-                    $currID = (int)$currID;
-                    $data = $_SESSION['data'][$currID];
+                }
+                $data = [];
+                foreach ($_SESSION['data'] as $index) {
+                    $temp = array_search($currTitle, $index);
+                    if ($temp) {
+                        $data = $index;
+                        break;
+                    }
+                }
+                if (!$data) {
+                    echo "no results";
+                    header("Refresh: 1.5, url=index.php");
+                    exit();
                 }
             }
-
             ?>
             <?php
             $dateAdded = date('jS M, Y', DateTime::createFromFormat('Y-m-d H:i:s', $data['published_at'])->getTimestamp());
