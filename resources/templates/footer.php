@@ -2,8 +2,8 @@
 <footer>
         <div class="footer-links">
             <a href="#">About</a>
+            <a href="#">Contacts</a>
             <a href="#">Register</a>
-            <a href="#">Login</a>
         </div>
         <div class="follow"></div>
         <div class="iframe">
