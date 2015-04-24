@@ -46,6 +46,32 @@ header > nav > form > .user-login[type="password"] {
 
 }
 
+header > nav > .user-logout {
+    background: #F02;
+    border: none;
+    color: #FFF;
+    font: bold 17px sans-serif;
+    padding: 4px 10px 3px 10px;
+    margin: 7px 10px 7px 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+header > nav > .user-logout:hover {
+    color: #F00;
+    background: #FFF;
+}
+
+header > nav > .hello-box {
+    background: #000;
+    color: #FFF;
+    height: 32px;
+    margin: 7px 3px;
+    padding: 0 15px;
+    font: bold 23px sans-serif;
+    line-height: 143%;
+}
+
 header > nav > form > .login-submit {
     background: #F02;
     border: none;
