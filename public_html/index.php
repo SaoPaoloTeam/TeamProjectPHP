@@ -85,6 +85,14 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     $title = $data['title'];
                     $title = str_replace(' ', '+', $title);
 
+
+                    $tag = $data['tag'] == "nightwatch" ? "Night's Watch"   :
+                           $data['tag'] == "north"      ? "The North"       :
+                           $data['tag'] == "iron"       ? "The Iron Islands":
+                           $data['tag'] == "dorne"      ? "Dorne"           :
+                           $data['tag'] == "freecities" ? "The Free Cities" :
+                                                          "Slaver's Bay";
+
                     $currTag = $data['tag'];
                     $dateAdded = date('jS M, Y', DateTime::createFromFormat('Y-m-d H:i:s', $data['published_at'])->getTimestamp());
                     ?>
@@ -92,8 +100,8 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                         <header><?php echo $title; ?></header>
                         <p class="topic-content"><?php echo $data['content']; ?></p>
                         <footer>
-                            <div class="author">Author: <?php echo $data['author']; ?></div>
-                            <div class="tag"><?php echo $data['tag']; ?></div>
+                            <div class="author"><div class="author-black">Author:</div><div class="author-name"> <?php echo $data['author']; ?></div></div>
+                            <div class="tag"><?php echo $tag; ?></div>
                             <div class="date"><?php echo $dateAdded ?></div>
                             <div class="read-more">
                                 <a href="viewArticle.php?title=<?php echo $title ?>">Read More</a>
