@@ -1,10 +1,15 @@
 
 <header>
     <nav>
-        <?php
-        echo "Hello," . $_SESSION['user'];
-        echo "<a href='../resources/app_controls/logout.php'>Logout</a>";
-        ?>
+        <section class="logo">
+            A Blog Of Ice And Fire
+        </section>
+        <section>
+        <div class="hello-box">
+            <?php echo "Hello," . $_SESSION['user']; ?>
+        </div>
+        <a href='../resources/app_controls/logout.php' class="user-logout">Logout</a>
+        </section>
     </nav>
     <section class="bg-holder">
 

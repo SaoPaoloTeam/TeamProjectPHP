@@ -4,10 +4,29 @@ require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 require_once(RESOURCES_PATH . "/validations.php");
 require_once(RESOURCES_PATH . "/custom_functions.php");
 require_once(TEMPLATES_PATH . "/head.php");
-require_once(TEMPLATES_PATH . "/header.php");
 ?>
 
+<div class="wrapper">
+    <?php
+    if ($_SESSION['level'] == 0) {
+        require_once(TEMPLATES_PATH . "/header.php");
+    } else if ($_SESSION['level'] == 1) {
+        require_once(TEMPLATES_PATH . "/headerLoggedIn.php");
+    } else if ($_SESSION['level'] == 2) {
+        require_once(TEMPLATES_PATH . "/adminHeader.php");
+    }
+    ?>
 <main>
+    <?php
+    if ($_SESSION['level'] == 0) {
+        require_once(TEMPLATES_PATH . "/aside-navigation.php");
+    } else if ($_SESSION['level'] == 1) {
+        require_once(TEMPLATES_PATH . "/aside-navigation.php");
+    } else if ($_SESSION['level'] == 2) {
+        require_once(TEMPLATES_PATH . "/aside-navigation-admin.php");
+    }
+    ?>
+
     <form action="register.php" method="post">
         <input type="text" name="username"/>
         <input type="password" name="password"/>
@@ -19,6 +38,8 @@ require_once(TEMPLATES_PATH . "/header.php");
     <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
 </main>
     <?php require_once(TEMPLATES_PATH . "/footer.php"); ?>
+</div>
+
 
 <?php
 include_once('connection.php');
