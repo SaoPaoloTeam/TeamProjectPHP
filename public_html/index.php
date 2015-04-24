@@ -73,13 +73,11 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     $currentPage = (int)$currentPage;
                 }
             }
-            if ($currentPage == $totalPages - 1) {
+            if ($currentPage == $totalPages - 1 && $articlesCount % $articlesPerPage != 0) {
                 $articlesPerPage = $articlesCount % $articlesPerPage;
             }
 
-
-            ?>
-            <?php if (count($articleArray) > 0): ?>
+            if (count($articleArray) > 0): ?>
                 <?php for ($i = 0; $i < $articlesPerPage; $i++): ?>
                     <?php
                     $currIndex = $i + ($currentPage * 4);
