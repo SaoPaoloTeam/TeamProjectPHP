@@ -51,6 +51,19 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     header("Refresh: 1.5, url=index.php");
                     exit();
                 }
+
+                $currTag = $data['tag'];
+
+                $tag = "";
+                switch ($currTag) {
+                    case "nightwatch": $tag = "Night's Watch"; break;
+                    case "freecities": $tag = "The Free Cities"; break;
+                    case "dorne": $tag = "Dorne"; break;
+                    case "iron": $tag = "The Iron Islands"; break;
+                    case "north": $tag = "North"; break;
+                    case "slaver":
+                    default: $tag = "Slaver's Bay"; break;
+                }
             }
             ?>
             <?php
@@ -60,14 +73,20 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                 <header><?php echo $data['title']; ?></header>
                 <p class="topic-content"><?php echo $data['content']; ?></p>
                 <footer>
-                    <div class="author">Author: <?php echo $data['author']; ?></div>
-                    <div class="tag"><?php echo $data['tag']; ?></div>
+                    <div class="author"><div class="author-black">Author:</div><div class="author-name"> <?php echo $data['author']; ?></div></div>
+                    <div class="tag"><?php echo $tag; ?></div>
                     <div class="date"><?php echo $dateAdded ?></div>
                     <div class="read-more">
                         <a href="index.php">Back</a>
                     </div>
                 </footer>
             </article>
+            <section class="comments-holder">
+                <?php
+                $_SESSION['currentTitle'] = $data['title'];
+                include_once('comments.php')
+                ?>
+            </section>
 
         </section>
         <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>

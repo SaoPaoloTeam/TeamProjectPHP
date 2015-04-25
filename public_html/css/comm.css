@@ -1,8 +1,7 @@
 #wrapper-comm {
-    width: 490px;
-    margin: 0 auto;
+    width: 85%;
+    margin: 0 60px;
     display: inline-block;
-
 }
 a {
     text-decoration: none;
@@ -15,11 +14,11 @@ a {
    /*width: 100%;*/
 /*}*/
 
-.date {
-    margin: 10px 0px;
-    font-style: italic;
-    font-size: 12px;
-}
+/*.date {*/
+    /*margin: 10px 0px;*/
+    /*font-style: italic;*/
+    /*font-size: 12px;*/
+/*}*/
 
 #postEdit {
     width: 120px;

@@ -183,6 +183,7 @@ main > .content-holder > .topic {
     height: 35px;
     display: flex;
     flex-flow: row wrap;
+    color: #FFF;
 }
 
 .topic > footer > .read-more {
@@ -226,10 +227,6 @@ main > .content-holder > .topic {
     box-shadow: 1px 1px #CCC;
 }
 
-/*--------------------*/
-/* contact page start */
-/*--------------------*/
-
 
 .author-black {
     color: #FFF;
@@ -262,6 +259,19 @@ main > .content-holder > .topic {
     background: linear-gradient(to right, rgba(0,0,0,1) 24%,rgba(255,0,34,1) 76%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ff0022',GradientType=1 ); /* IE6-9 */
 }
+
+/*comments start*/
+
+.comments-holder {
+    width: 90%;
+    margin: 25px auto;
+}
+/*comments end*/
+
+
+/*--------------------*/
+/* contact page start */
+/*--------------------*/
 
 .contact {
 
