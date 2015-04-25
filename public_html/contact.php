@@ -41,8 +41,8 @@ require_once(RESOURCES_PATH . "../app_controls/session.php");
             </div>
             <div class="cordinates-info">
                 <div class="google-maps">
-                    <iframe
-                        src="https://www.google.com/maps/embed/v1/place?q=%D0%9F%D0%B5%D1%80%D0%BD%D0%B8%D0%BA%2C%20%D0%91%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D0%B8%D1%8F&amp;key=AIzaSyAaTxuZ2oohv1WB2CWFxt3OzWZJgzrHw0k"></iframe>
+<!--                    <iframe-->
+<!--                        src="https://www.google.com/maps/embed/v1/place?q=%D0%9F%D0%B5%D1%80%D0%BD%D0%B8%D0%BA%2C%20%D0%91%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D0%B8%D1%8F&amp;key=AIzaSyAaTxuZ2oohv1WB2CWFxt3OzWZJgzrHw0k"></iframe>-->
                 </div>
 
                 <div class="coordinates">

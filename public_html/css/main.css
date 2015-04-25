@@ -62,11 +62,11 @@ header > nav > section {
 }
 
 header > nav > section > .user-logout {
-    background: #F02;
-    border: none;
+    background: none repeat #F02;
+    border: medium none;
     color: #FFF;
-    font: bold 17px sans-serif;
-    padding: 4px 10px 3px 10px;
+    font: bolder 17px sans-serif;
+    padding: 6px 10px 3px;
     margin: 7px 10px 7px 5px;
     cursor: pointer;
     text-decoration: none;
@@ -183,6 +183,7 @@ main > .content-holder > .topic {
     height: 35px;
     display: flex;
     flex-flow: row wrap;
+    color: #FFF;
 }
 
 .topic > footer > .read-more {
@@ -226,6 +227,7 @@ main > .content-holder > .topic {
     box-shadow: 1px 1px #CCC;
 }
 
+
 .author-black {
     color: #FFF;
     background: none;
@@ -257,6 +259,19 @@ main > .content-holder > .topic {
     background: linear-gradient(to right, rgba(0,0,0,1) 24%,rgba(255,0,34,1) 76%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ff0022',GradientType=1 ); /* IE6-9 */
 }
+
+/*comments start*/
+
+.comments-holder {
+    width: 90%;
+    margin: 25px auto;
+}
+/*comments end*/
+
+
+/*--------------------*/
+/* contact page start */
+/*--------------------*/
 
 .contact {
 
@@ -291,8 +306,6 @@ main > .content-holder > .topic {
     height: 200px;
     float: right;
     color: #FFFFFF;
-    margin-top: 100px;
-
 }
 .contact .contact-info textarea{
     display: block;
@@ -326,8 +339,24 @@ main > .content-holder > .topic {
     margin-left: 40px;
     margin-top: 20px;
     font-size: 20px;
-
 }
+
+/*--------------------*/
+/* contact page end-- */
+/*--------------------*/
+/*--------------------*/
+/* about  page start-- */
+/*--------------------*/
+.about-page {
+    border: 1px solid black;
+    width: 50%;
+    margin: 0 auto;
+    height: auto;
+    background: #111;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+
 .btns-holder{
     display: flex;
     justify-content: space-around;
@@ -382,6 +411,29 @@ table{
     font-weight: bold;
 }
 
+.about-page h1{
+    margin-top: 20px;
+    font-size: 40px;
+    text-align: center;
+}
+.about-page p{
+font-size: 18px;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/*.about-page-image {*/
+    /*width: 100%;*/
+    /*height: 45px;*/
+    /*background-image: url("../images/aboutUsWall.png");*/
+    /*background-size: 100% 100%;*/
+    /*background-repeat: no-repeat;*/
+/*}*/
+
+/*--------------------*/
+/* about  page end- */
+/*--------------------*/
 
 
 /*---------------*/
