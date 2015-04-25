@@ -62,11 +62,11 @@ header > nav > section {
 }
 
 header > nav > section > .user-logout {
-    background: #F02;
-    border: none;
+    background: none repeat #F02;
+    border: medium none;
     color: #FFF;
-    font: bold 17px sans-serif;
-    padding: 4px 10px 3px 10px;
+    font: bolder 17px sans-serif;
+    padding: 6px 10px 3px;
     margin: 7px 10px 7px 5px;
     cursor: pointer;
     text-decoration: none;
@@ -225,11 +225,11 @@ main > .content-holder > .topic {
     color: #F00;
     box-shadow: 1px 1px #CCC;
 }
-<<<<<<< HEAD
+
 /*--------------------*/
 /* contact page start */
 /*--------------------*/
-=======
+
 
 .author-black {
     color: #FFF;
@@ -263,7 +263,6 @@ main > .content-holder > .topic {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ff0022',GradientType=1 ); /* IE6-9 */
 }
 
->>>>>>> a52a9975238ec681490aaf948ff3169ee3500ede
 .contact {
 
     width: 50%;
@@ -297,8 +296,6 @@ main > .content-holder > .topic {
     height: 200px;
     float: right;
     color: #FFFFFF;
-    margin-top: 100px;
-
 }
 .contact .contact-info textarea{
     display: block;
@@ -333,25 +330,23 @@ main > .content-holder > .topic {
     margin-top: 20px;
     font-size: 20px;
 }
-<<<<<<< HEAD
+
 /*--------------------*/
 /* contact page end-- */
 /*--------------------*/
 /*--------------------*/
 /* about  page start-- */
 /*--------------------*/
-.about-page{
+.about-page {
     border: 1px solid black;
     width: 50%;
     margin: 0 auto;
-    height: 700px;
-    background-image: url("../images/aboutUsWall.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    height: auto;
+    background: #111;
     color: #FFFFFF;
     margin-top: 20px;
+}
 
-=======
 .btns-holder{
     display: flex;
     justify-content: space-around;
@@ -400,13 +395,11 @@ table{
 .title-table{
     font-weight: bold;
 }
->>>>>>> a52a9975238ec681490aaf948ff3169ee3500ede
 
-}
 .about-page h1{
-    margin-left: 380px;
     margin-top: 20px;
     font-size: 40px;
+    text-align: center;
 }
 .about-page p{
 font-size: 18px;
@@ -414,12 +407,15 @@ font-size: 18px;
     margin-left: 20px;
     margin-right: 20px;
 }
-.about-page p:first-of-type{
-    margin-top: -90px;
-}
-.about-page p:last-of-type{
-    margin-top: -40px;
-}
+
+/*.about-page-image {*/
+    /*width: 100%;*/
+    /*height: 45px;*/
+    /*background-image: url("../images/aboutUsWall.png");*/
+    /*background-size: 100% 100%;*/
+    /*background-repeat: no-repeat;*/
+/*}*/
+
 /*--------------------*/
 /* about  page end- */
 /*--------------------*/

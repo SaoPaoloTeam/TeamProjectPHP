@@ -112,7 +112,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     $dateAdded = date('jS M, Y', DateTime::createFromFormat('Y-m-d H:i:s', $data['published_at'])->getTimestamp());
                     ?>
                     <article class="topic">
-                        <header><?php echo $title; ?></header>
+                        <header><?php echo $data['title']; ?></header>
                         <p class="topic-content"><?php echo "<pre>" . $data['content'] . "</pre>"; ?></p>
                         <footer>
                             <div class="author"><div class="author-black">Author:</div><div class="author-name"> <?php echo $data['author']; ?></div></div>

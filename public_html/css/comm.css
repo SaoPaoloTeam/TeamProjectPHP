@@ -7,17 +7,20 @@
 a {
     text-decoration: none;
 }
-input {
-    width: 100%;
-}
-textarea {
-   width: 100%;
-}
+/*input {*/
+    /*width: 100%;*/
+/*}*/
+
+/*textarea {*/
+   /*width: 100%;*/
+/*}*/
+
 .date {
     margin: 10px 0px;
     font-style: italic;
     font-size: 12px;
 }
+
 #postEdit {
     width: 120px;
     margin: 5px 0;
@@ -28,5 +31,4 @@ textarea {
     color: #fff;
     vertical-align: middle;
     text-align: center;
-
 }
