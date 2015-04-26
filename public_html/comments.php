@@ -23,7 +23,7 @@ switch ($_SESSION['level']) {
 }
 
 if (isset($_SESSION['user'])) {
- $publisher = $_SESSION['user'];
+   $publisher = $_SESSION['user'];
 } else {
     $publisher = 'guest';
 }
@@ -184,6 +184,9 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
     </form>
 <?php elseif ($userLevel == 'Admin'): ?>
     <form action="#" method="POST">
+        <?php if ($publisher == $row['Name']): ?>
+        <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
+        <?php endif; ?>
         <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Delete" />
     </form>
 <?php endif; ?>
