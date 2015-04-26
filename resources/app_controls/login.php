@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $sql = "SELECT id, username, level FROM Users WHERE username = '$name' AND password = '$pass';";
     $query = mysqli_query($conn, $sql);
     if (mysqli_num_rows($query) == 1) {
-        session_start();
+        //session_start();
         $output = mysqli_fetch_assoc($query);
         $_SESSION['user'] = $output['username'];
         if ($output['level'] == 2) {

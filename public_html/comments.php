@@ -22,7 +22,12 @@ switch ($_SESSION['level']) {
 	break;
 }
 
-$publisher = $_SESSION['user'];
+if (isset($_SESSION['user'])) {
+   $publisher = $_SESSION['user'];
+} else {
+    $publisher = 'guest';
+}
+
 
 
 if (array_search('Edit', $_POST)) {
@@ -49,7 +54,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
         $name = $publisher;
         $comments = processInput($_POST['comment']);
         $arr = escapeAll([$name, $comments, $articleTitle], $conn);
-
+        $title = str_replace(' ', '+', $articleTitle);
         if($name && $comments) {
             $insert = "INSERT INTO Comments (Name,Comment,article_title)
             VALUES ('{$arr[$name]}', '{$arr[$comments]}', '{$arr[$articleTitle]}')";
@@ -73,7 +78,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
             $rs=$conn->query($sql);
             $commVerification = $rs->fetch_all(MYSQLI_ASSOC);
 
-            if ($commVerification['0']['Name'] == $name && $commVerification['0']['article_title'] == $title) {
+            if ($commVerification['0']['Name'] == $name && $commVerification['0']['article_title'] == $articleTitle) {
                 $insert = "UPDATE Comments SET Comment='{$arr[$comments]}' WHERE id ='{$_SESSION['idComm']}'";
                 unset($_SESSION['idComm']);
                 $result = mysqli_query($conn, $insert);
@@ -107,12 +112,13 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
     } elseif (isset($_POST['guest-submit'])) {
         $name = processInput($_POST['name']);
         $comments = processInput($_POST['comment']);
-        $arr = escapeAll([$name, $comments, $articleTitle], $conn);
+        $email = processInput($_POST['email']);
+        $arr = escapeAll([$name, $comments, $articleTitle, $email], $conn);
 
-        if($name && $comments) {
-            $insert = "INSERT INTO Comments (Name,Comment,article_title)
-            VALUES ('{$arr[$name]}', '{$arr[$comments]}', '{$arr[$articleTitle]}')";
-
+        if($name && $comments && $email) {
+            $insert = "INSERT INTO Comments (Name,Comment,article_title, email)
+            VALUES ('{$arr[$name]}', '{$arr[$comments]}', '{$arr[$articleTitle]}', '{$arr[$email]}')";
+            
             $result = mysqli_query($conn, $insert);
             if ($result) {
                 echo "Success";
@@ -126,7 +132,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
 <div id="wrapper-comm">
 
     <?php
-        /*    var_dump($_SESSION['level']);
+/*           var_dump($_SESSION['level']);
             //var_dump($_SESSION['idComm']);
             //
             var_dump($publisher);
@@ -142,8 +148,8 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
 
                 //var_dump($_POST['logged-submit']);
             var_dump($_SESSION['currentTitle']);
-            var_dump($id);*/
-
+            var_dump($id);
+*/
     $sql="SELECT id, Name, Comment, published_at FROM Comments WHERE article_title LIKE '$articleTitle'";
 
     $rs=$conn->query($sql);	
@@ -198,7 +204,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ):?>
             <label for="comment">Comment:</label>
             <textarea name="comment" rows="10" cols="50"></textarea>
 
-            <input type="submit" name="guest_submit" value="Comment">
+            <input type="submit" name="guest-submit" value="Comment">
         </form>
     </div>
 
