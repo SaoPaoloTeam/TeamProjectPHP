@@ -23,7 +23,7 @@ switch ($_SESSION['level']) {
 }
 
 if (isset($_SESSION['user'])) {
-   $publisher = $_SESSION['user'];
+ $publisher = $_SESSION['user'];
 } else {
     $publisher = 'guest';
 }
@@ -33,6 +33,11 @@ if (isset($_SESSION['user'])) {
 if (array_search('Edit', $_POST)) {
 
     $id = (int)array_search('Edit', $_POST);
+
+} elseif (array_search('Delete', $_POST)) {
+
+    $id = (int)array_search('Delete', $_POST);
+    $_SESSION['delete-comm'] = 1;
 
 } else {$id = 0;}
 
@@ -82,15 +87,27 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
                 $insert = "UPDATE Comments SET Comment='{$arr[$comments]}' WHERE id ='{$_SESSION['idComm']}'";
                 unset($_SESSION['idComm']);
                 $result = mysqli_query($conn, $insert);
-                        if ($result) {
-            echo "Success";
-            redirect_to("viewArticle.php?title=" . $title);
-        } else {
-            echo mysqli_error($conn);
+                if ($result) {
+                    echo "Success";
+                    redirect_to("viewArticle.php?title=" . $title);
+                } else {
+                    echo mysqli_error($conn);
+                }
+            }
+        } elseif (isset($_SESSION['delete-comm'])) {
+            $title = str_replace(' ', '+', $articleTitle);
+            $insert = "DELETE FROM Comments WHERE id='{$_SESSION['idComm']}'";
+            unset($_SESSION['idComm']);
+            unset($_SESSION['delete-comm']);
+            $result = mysqli_query($conn, $insert);
+            if ($result) {
+                echo "Success";
+                redirect_to("viewArticle.php?title=" . $title);
+            } else {
+                echo mysqli_error($conn);
+            }
         }
     }
-}
-}
 } else {
     if (isset($_POST['logged-submit'])) {
         $name = $publisher;
@@ -108,7 +125,6 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
                 echo mysqli_error($conn);
             }
         }
-
     } elseif (isset($_POST['guest-submit'])) {
         $name = processInput($_POST['name']);
         $comments = processInput($_POST['comment']);
@@ -132,23 +148,23 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
 <div id="wrapper-comm">
 
     <?php
-/*           var_dump($_SESSION['level']);
+/*    var_dump($_SESSION['level']);
             //var_dump($_SESSION['idComm']);
             //
-            var_dump($publisher);
-            var_dump($articleTitle);
-            var_dump($userLevel);
-            print_r($_POST);
-            var_dump($_SERVER["REQUEST_METHOD"]);
+    var_dump($publisher);
+    var_dump($articleTitle);
+    var_dump($userLevel);
+    print_r($_POST);
+    var_dump($_SERVER["REQUEST_METHOD"]);
             //unset($_SESSION['idComm']);
+    print_r($_SESSION['delete-comm']);
 
-
-            var_dump($_SESSION['idComm']);
+    var_dump($_SESSION['idComm']);
 
 
                 //var_dump($_POST['logged-submit']);
-            var_dump($_SESSION['currentTitle']);
-            var_dump($id);
+    var_dump($_SESSION['currentTitle']);
+    var_dump($id);
 */
     $sql="SELECT id, Name, Comment, published_at FROM Comments WHERE article_title LIKE '$articleTitle'";
 
@@ -162,13 +178,16 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
     <hr size="1"/>
     <?= $row['Comment'] ?> 
 
-
-    <?php if(($userLevel == 'User' || $userLevel == 'Admin') && $row['Name'] == $publisher): ?>
+    <?php if(($userLevel == 'User' && $row['Name'] == $publisher)): ?>
     <form action="#" method="POST">
-      <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
-  </form>
-
+        <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
+    </form>
+<?php elseif ($userLevel == 'Admin'): ?>
+    <form action="#" method="POST">
+        <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Delete" />
+    </form>
 <?php endif; ?>
+
 <?php endforeach; ?>
 
 <?php
@@ -178,7 +197,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ):?>
     <form action="#" method="POST" >
         <p>Your Name: <?= $publisher ?> </p>
         <label for="comment">Comment:</label>
-        <?php if ($id) {
+        <?php if ($id && !isset($_SESSION['delete-comm'])) {
             $sql="SELECT Comment FROM Comments WHERE id='{$id}'";
             $rs=$conn->query($sql);
             $commArrTemp = $rs->fetch_all(MYSQLI_ASSOC);
