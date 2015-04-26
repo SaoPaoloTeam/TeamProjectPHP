@@ -105,7 +105,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
                 redirect_to("viewArticle.php?title=" . $title);
             } else {
                 echo mysqli_error($conn);
-            }
+            }   
         }
     }
 } else {
