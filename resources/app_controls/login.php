@@ -11,11 +11,14 @@ if (isset($_POST['submit'])) {
 
     $name = mysqli_real_escape_string($conn, $name);
     $pass = md5(mysqli_real_escape_string($conn, $pass));
-    $sql = "SELECT id, username, level FROM Users WHERE username = '$name' AND password = '$pass';";
+    $sql = "SELECT id, username, level, status FROM Users WHERE username = '$name' AND password = '$pass';";
     $query = mysqli_query($conn, $sql);
     if (mysqli_num_rows($query) == 1) {
-        session_start();
+        //session_start();
         $output = mysqli_fetch_assoc($query);
+        if ($output['status'] == "inactive") {
+            redirect_to("../../public_html/index.php?login=0");
+        }
         $_SESSION['user'] = $output['username'];
         if ($output['level'] == 2) {
             $_SESSION['level'] = 2;
@@ -27,6 +30,5 @@ if (isset($_POST['submit'])) {
     }
     else {
         redirect_to("../../public_html/index.php?login=0");
-
     }
 }

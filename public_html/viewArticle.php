@@ -85,8 +85,9 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
             </article>
             <section class="comments-holder">
                 <?php
-                $_SESSION['currentTitle'] = $data['title'];
-                include_once('comments.php')
+               $_SESSION['currentTitle'] = $data['title'];
+
+                include_once('comments.php');
                 ?>
             </section>
 
