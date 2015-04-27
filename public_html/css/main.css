@@ -21,7 +21,7 @@ body::after{
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;s
+    z-index: -1;
     background-position-y: -50%;
 
 
@@ -204,6 +204,9 @@ main > .content-holder > .topic {
     width: 90%;
     margin: 5px auto;
     font-size: 18px;
+    font: 18px sans-serif;
+    word-wrap: break-word;
+
 }
 
 .topic > footer {
@@ -218,7 +221,7 @@ main > .content-holder > .topic {
 }
 
 .topic > footer > .author {
-    font-size: bold 25px;
+    font-size:25px;
     width: auto;
     height: 35px;
     display: flex;
@@ -311,18 +314,94 @@ main > .content-holder > .topic {
     margin: 0 0 10px 0;
 }
 
+.comment-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.comment-num {
+    background: #F02;
+    color: #FFF;
+    padding: 3px 5px;
+    font: bold 15px sans-serif;
+    margin: 15px 0 0 0;
+}
+
 .comment-author {
-    margin: 0 0 3px 0;
+    margin: 15px 0 0 0;
+    font-size: 16px;
 }
 
 .comment-text {
     margin: 5px 0;
-    background: #DDD;
+    box-shadow: 5px 5px 10px #000;
+    padding: 5px 10px;
 }
 
 .comment-date {
     text-decoration: underline;
     font-style: italic;
+    margin: 0 0 6px 0;
+}
+
+.guest-post {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.guest-post > input {
+    width: 87%;
+    margin: 0 0 8px 0;
+    box-shadow: 2px 2px 5px #666;
+}
+
+.guest-post > input:focus {
+    outline: 0;
+}
+
+.guest-post > input[type="submit"] {
+    background: #F02;
+    border: none;
+    color: #FFF;
+    width: 25%;
+    margin: 15px 26px 0 0;
+    align-self: flex-end;
+    font-weight: bold;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.guest-post > input[type="submit"]:hover {
+    background: #FFF;
+    border: none;
+    color: #F02;
+}
+
+.write-comment {
+    background: #F02;
+    color: #FFF;
+    padding: 5px 10px;
+    display: block;
+    width: 110px;
+    margin: 20px 0 0;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 1px 1px 2px #CCC;
+    cursor: pointer;
+}
+
+.write-comment:hover {
+    background: #FFF;
+    color: #F02;
+}
+
+.guest-post > textarea {
+    resize: none;
+    box-shadow: 2px 2px 5px #666;
 }
 /*comments end*/
 

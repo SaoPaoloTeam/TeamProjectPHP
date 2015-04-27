@@ -136,9 +136,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
             VALUES ('{$arr[$name]}', '{$arr[$comments]}', '{$arr[$articleTitle]}', '{$arr[$email]}')";
             
             $result = mysqli_query($conn, $insert);
-            if ($result) {
-                echo "Success";
-            } else {
+            if (!$result) {
                 echo mysqli_error($conn);
             }
         }
@@ -171,10 +169,13 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
     $rs=$conn->query($sql);	
 
     $commAsArr = $rs->fetch_all(MYSQLI_ASSOC);
-
+    $index = 1;
     foreach($commAsArr as $row): ?>
         <div class="comment-box">
+            <div class="comment-header">
             <h5 class="comment-author">Posted by: <?= $row['Name'] ?></h5>
+                <div class="comment-num">#<?php echo $index; $index++ ?></div>
+            </div>
             <p class="comment-date"><?= date("j F Y", strtotime($row['published_at'])) ?></p>
             <p class="comment-text"><?= $row['Comment'] ?></p>
 
@@ -197,7 +198,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
 <?php
 
 if($userLevel == 'Admin' || $userLevel == 'User' ):?>
-<div>
+<div id="comment-editor">
     <form action="#" method="POST" >
         <p>Your Name: <?= $publisher ?> </p>
         <label for="comment">Comment:</label>
@@ -216,13 +217,14 @@ if($userLevel == 'Admin' || $userLevel == 'User' ):?>
     </form>
 </div>
 <?php else:?>
-    <div>
-        <form action="#" method="POST" >
-            <label for="name">Enter your name:</label>
-            <input name="name" type="text" />
+    <span class="write-comment" onclick="showCommentForm(this)">Post a comment</span>
+    <div id="comment-editor" style="display: none">
+        <form action="#" method="POST" class="guest-post">
 
-            <label for="email">Enter your email:</label>
-            <input name="email" type="text" />
+            <input name="name" type="text" placeholder="Name.."/>
+
+
+            <input name="email" type="text" placeholder="Email.."/>
 
             <label for="comment">Comment:</label>
             <textarea name="comment" rows="10" cols="50"></textarea>
