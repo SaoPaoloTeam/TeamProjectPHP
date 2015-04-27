@@ -1,4 +1,4 @@
-<header>
+<header id="header_nav">
     <nav>
         <section class="logo">
             <a href="index.php">A Blog Of Ice And Fire</a>

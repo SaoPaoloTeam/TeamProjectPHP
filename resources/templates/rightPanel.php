@@ -1,5 +1,5 @@
 
-<aside>
+<aside class="right-aside">
     <ul>
         <li><a href="index.php?page=0&cat=all">All Articles</a></li>
         <li><a href="index.php?page=0&cat=nightwatch">The Night's Watch</a></li>

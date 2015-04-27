@@ -1,4 +1,4 @@
-<aside id="aside-navigation">
+<aside id="aside-navigation" class="left-aside">
     <ul id="page-navigation">
         <li><a href="admin.php">ADMIN PANEL</a></li>
         <li><a href="index.php">HOME</a></li>

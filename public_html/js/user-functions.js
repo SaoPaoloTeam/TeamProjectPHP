@@ -41,3 +41,36 @@ function showCommentForm(el) {
         el.innerHTML = "Post a comment";
     }
 }
+
+$(function() {
+    var $document, didScroll, offset,width,positionRight;
+    positionRight = Math.floor(($( window ).width()-$( ".wrapper" ).width())/2)-Math.ceil(getScrollBarWidth()/2)-1;
+
+    offset = $('.left-aside').position().top-45;
+    width = $('.left-aside').width();
+    $document = $(document);
+    didScroll = false;
+    $(window).on('scroll touchmove', function() {
+        return didScroll = true;
+    });
+    return setInterval(function() {
+        if (didScroll) {
+            $('.left-aside').toggleClass('fixed', $document.scrollTop() > offset);
+            $('.right-aside').toggleClass('fixed', $document.scrollTop() > offset);
+            $('.left-aside').width(width);
+            $('.right-aside').width(width);
+            $('.right-aside').css('right',positionRight+'px');
+            $('.right-aside').css('z-index',-1);
+            $('.content-holder').toggleClass('test', $document.scrollTop() > offset);
+            return didScroll = false;
+        }
+    }, 100);
+});
+
+function getScrollBarWidth () {
+    var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+        widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+    $outer.remove();
+    return Math.floor(100 - widthWithScroll);
+};
+
