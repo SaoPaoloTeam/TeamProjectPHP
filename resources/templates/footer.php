@@ -3,6 +3,7 @@
 
     <div class="copyright">
         <p>&lt;?php São Paulo Team ?></p>
+        </div>
 
     <div id="houses">
         <a href=""><img src="images/icons-footer/Arryn.png" alt=""/></a>

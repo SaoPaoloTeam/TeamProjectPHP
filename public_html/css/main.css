@@ -34,6 +34,7 @@ body::after{
 
 }
 .wrapper {
+
     width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
@@ -46,7 +47,7 @@ body::after{
 header  {
     width: 100%;
     height: 220px;
-    margin: 0 10px;
+    /*margin: 0 10px;*/
 
 }
 
@@ -180,7 +181,7 @@ header > nav > section> .register:hover {
 main {
     width: 100%;
     height: auto;
-    margin: 10px;
+    /*margin: 10px;*/
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -711,6 +712,7 @@ main > #aside-navigation > ul > li:hover > a {
     color: #FFFFFF;
     width: 1200px;
     display: flex;
+    margin-top: 30px;
 
 
 }

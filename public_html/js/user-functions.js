@@ -44,7 +44,7 @@ function showCommentForm(el) {
 
 $(function() {
     var $document, didScroll, offset,width,positionRight;
-    positionRight = Math.floor(($( window ).width()-$( ".wrapper" ).width())/2)-Math.ceil(getScrollBarWidth()/2)-1;
+    positionRight = Math.floor(($( window ).width()-$( ".wrapper" ).width())/2);
 
     offset = $('.left-aside').position().top-45;
     width = $('.left-aside').width();
@@ -60,7 +60,7 @@ $(function() {
             $('.left-aside').width(width);
             $('.right-aside').width(width);
             $('.right-aside').css('right',positionRight+'px');
-            $('.right-aside').css('z-index',-1);
+            //$('.right-aside').css('z-index',-1);
             $('.content-holder').toggleClass('test', $document.scrollTop() > offset);
             return didScroll = false;
         }
