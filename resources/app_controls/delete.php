@@ -1,5 +1,6 @@
 <?php
 require_once(realpath(dirname(__FILE__) . "/../config.php"));
+require_once(realpath(dirname(__FILE__) . "/../custom_functions.php"));
 
 
 
@@ -10,7 +11,7 @@ if (isset($_GET['hideArticle'])) {
     $queryDeactivate .= "WHERE id=$id";
     $result =mysqli_query($conn, $queryDeactivate);
     if ($result) {
-        echo "SUCCESS";
+        redirect_to("../../public_html/admin.php");
     } else {
         echo mysqli_error($conn);
     }
@@ -24,7 +25,7 @@ if (isset($_GET['showArticle'])) {
     $queryDeactivate .= "WHERE id=$id";
     $result =mysqli_query($conn, $queryDeactivate);
     if ($result) {
-        echo "SUCCESS";
+        redirect_to("../../public_html/admin.php");
     } else {
         echo mysqli_error($conn);
     }
@@ -38,7 +39,7 @@ if (isset($_GET['deactivateUser'])) {
     $queryDeactivate .= "WHERE id=$id";
     $result =mysqli_query($conn, $queryDeactivate);
     if ($result) {
-        echo "SUCCESS";
+        redirect_to("../../public_html/admin.php");
     } else {
         echo mysqli_error($conn);
     }
@@ -52,7 +53,7 @@ if (isset($_GET['activateUser'])) {
     $queryActivate .= "WHERE id=$id";
     $result =mysqli_query($conn, $queryActivate);
     if ($result) {
-        echo "SUCCESS";
+        redirect_to("../../public_html/admin.php");
     } else {
         echo mysqli_error($conn);
     }

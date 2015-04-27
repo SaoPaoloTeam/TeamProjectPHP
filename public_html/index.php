@@ -3,6 +3,7 @@
 require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 require_once(RESOURCES_PATH . "../app_controls/session.php");
 //$config['db'];
+
 //session_destroy();
 require_once(TEMPLATES_PATH . "/head.php"); ?>
 
@@ -41,16 +42,19 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
             <?php
             if (!isset($_SESSION['data'])) {
                 $_SESSION['data'] = [];
-                $queryArticles = "SELECT title, author, content, tag, published_at FROM Articles ORDER BY published_at DESC;";
+                $queryArticles = "SELECT title, author, content, tag, published_at, status FROM Articles ORDER BY published_at DESC;";
 
                 $selected = mysqli_query($conn, $queryArticles);
                 if ($selected) {
                     while ($data = mysqli_fetch_assoc($selected)) {
-                        array_push($_SESSION['data'], $data);
+                        if ($data['status'] == 'active') {
+                            array_push($_SESSION['data'], $data);
+                        }
                     }
                 } else {
                     echo mysqli_error($conn);
                 }
+
             }
             ?>
             <?php
@@ -113,7 +117,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     ?>
                     <article class="topic">
                         <header><?php echo $data['title']; ?></header>
-                        <p class="topic-content"><?php echo "<pre>" . $data['content'] . "</pre>"; ?></p>
+                        <p class="topic-content"><?php echo $data['content']; ?></p>
                         <footer>
                             <div class="author"><div class="author-black">Author:</div><div class="author-name"> <?php echo $data['author']; ?></div></div>
                             <div class="tag"><?php echo $tag; ?></div>

@@ -30,3 +30,14 @@ function getContent(content,title,id){
     document.getElementById('article-id').value = id;
 
 }
+
+function showCommentForm(el) {
+    var menu = document.getElementById('comment-editor');
+    if (menu.style.display == 'none') {
+        menu.style.display = 'block';
+        el.innerHTML = "Hide";
+    } else {
+        menu.style.display = 'none';
+        el.innerHTML = "Post a comment";
+    }
+}
