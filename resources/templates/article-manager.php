@@ -12,51 +12,57 @@
         $selected = mysqli_query($conn, $queryArticles);
         ?>
         <?php if ($selected): ?>
-            <?php while ($data = mysqli_fetch_assoc($selected)): ?>
-                <tr>
-                    <td>
-                        <?php echo $data['title']; ?>
-                    </td>
-                    <td>
-                        <?php echo $data['status']; ?>
-                    </td>
-                    <td>
-                        <a href='#'
-                           onclick="getContent(<?php echo "'{$data['content']}','{$data['title']}','{$data['id']}'"; ?>),showMenu('edit-article-box'),hideMenu('table-articles')">edit</a>
-                    </td>
-                    <td>
-                        <a href='../resources/app_controls/delete.php?hideArticle=<?php echo "{$data['id']}"; ?>'>hide</a>
-                    </td>
-                    <td>
-                        <a href='../resources/app_controls/delete.php?showArticle=<?php echo "{$data['id']}"; ?>'>show</a>
-                    </td>
-                </tr>
+        <?php while ($dataArticles = mysqli_fetch_assoc($selected)): ?>
+            <tr>
+                <td>
+                    <?php echo $dataArticles['title'];
+                    $content = htmlentities($dataArticles['content']);
+                    ?>
+                </td>
+                <td>
+                    <?php echo $dataArticles['status'];
+                    $title = $dataArticles['title'];
+                    $id = $dataArticles['id']; ?>
+
+                </td>
+                <td>
+                    <textarea id="area<?php echo $id;?>" cols="30" rows="10" style="display: none"><?php echo $content; ?></textarea>
+                    <a href='#'
+                       onclick="getContent(<?php echo "'{$title}'" . "," . "'{$id}'"; ?>),showMenu('edit-article-box'),hideMenu('table-articles')">edit</a>
+                </td>
+                <td>
+                    <a href='../resources/app_controls/delete.php?hideArticle=<?php echo "{$dataArticles['id']}"; ?>'>hide</a>
+                </td>
+                <td>
+                    <a href='../resources/app_controls/delete.php?showArticle=<?php echo "{$dataArticles['id']}"; ?>'>show</a>
+                </td>
+            </tr>
 
 
-            <?php endwhile; ?>
+        <?php endwhile; ?>
     </table>
-            <section>
-                <div id="edit-article-box" style="display: none;">
-                    <form action="../resources/app_controls/edit.php" method="post">
-                        <input id="title-edit" type="text" name="title" placeholder="Topic title.."/>
-                        <input id="article-id" type="text" name="article-id" style="display: none"/>
+    <section>
+        <div id="edit-article-box" style="display: none;">
+            <form action="../resources/app_controls/edit.php" method="post">
+                <input id="title-edit" type="text" name="title" placeholder="Topic title.."/>
+                <input id="article-id" type="text" name="article-id" style="display: none"/>
                         <textarea id="content-edit" name="content" cols="30" rows="10"
                                   placeholder="Topic text"></textarea>
-                        <select name="tags">
-                            <option value="nightwatch">Night's Watch</option>
-                            <option value="dorne">Dorne</option>
-                            <option value="north">North</option>
-                            <option value="freecities">The Free Cities</option>
-                            <option value="slaver">Slaver's Bay</option>
-                            <option value="iron">The Iron Islands</option>
-                        </select>
-                        <input type="submit" name="topic-submit" value="Submit"/>
-                    </form>
-                </div>
-            </section>
+                <select name="tags">
+                    <option value="nightwatch">Night's Watch</option>
+                    <option value="dorne">Dorne</option>
+                    <option value="north">North</option>
+                    <option value="freecities">The Free Cities</option>
+                    <option value="slaver">Slaver's Bay</option>
+                    <option value="iron">The Iron Islands</option>
+                </select>
+                <input type="submit" name="topic-submit" value="Submit"/>
+            </form>
+        </div>
+    </section>
 
 
-        <?php endif; ?>
+    <?php endif; ?>
 
 
 </div>
