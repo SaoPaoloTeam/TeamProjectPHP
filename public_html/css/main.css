@@ -218,12 +218,12 @@ main > .content-holder > .topic {
 }
 
 .topic > .topic-content {
-    width: 90%;
-    margin: 5px auto;
-    font-size: 18px;
+    width: 97%;
+    height: 110px;
+    background: #FFF;
+    padding: 5px 10px;
     font: 18px sans-serif;
-    word-wrap: break-word;
-
+    overflow: hidden;
 }
 
 .topic > footer {
