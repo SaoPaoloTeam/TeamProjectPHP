@@ -3,6 +3,11 @@ function showMenu(id) {
     //console.log("TEST");
 }
 
+function hideMenu(id) {
+    document.getElementById(id).style.display = 'none';
+    //console.log("TEST");
+}
+
 function showArticleManager(){
     console.log('article');
     document.getElementById('article-manager').style.display = 'block';

@@ -50,7 +50,7 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
 
             <section class="btns-holder">
             <input class="main-btns" type="button" name="article_manager" value="Article manager"
-                   onclick="showArticleManager()"/>
+                   onclick="showArticleManager(),showMenu('table-articles')"/>
             <input class="main-btns" type="button" name="user_manager" value="User manager"
                    onclick="showUserManager()"/>
             <input class="main-btns" type="button" name="create_new" value="Create new article"

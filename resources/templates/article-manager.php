@@ -1,6 +1,6 @@
 <?php require_once(realpath(dirname(__FILE__) . "/../config.php")); ?>
 <div id="article-manager" style="display: none;">
-    <table>
+    <table id="table-articles">
         <tr class="title-table">
             <td>Titles</td>
             <td>Status</td>
@@ -22,7 +22,7 @@
                     </td>
                     <td>
                         <a href='#'
-                           onclick="getContent(<?php echo "'{$data['content']}','{$data['title']}','{$data['id']}'"; ?>),showMenu('edit-article-box')">edit</a>
+                           onclick="getContent(<?php echo "'{$data['content']}','{$data['title']}','{$data['id']}'"; ?>),showMenu('edit-article-box'),hideMenu('table-articles')">edit</a>
                     </td>
                     <td>
                         <a href='../resources/app_controls/delete.php?hideArticle=<?php echo "{$data['id']}"; ?>'>hide</a>

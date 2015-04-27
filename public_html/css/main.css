@@ -534,14 +534,18 @@ main > .content-holder > .topic {
     flex-flow: row wrap;
 }
 .main-btns{
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     word-wrap: break-word;
     text-align: center;
-    width: 100px;
+    background-color: #000000;
+    color: white;
+    width: 200px;
     margin: 2%;
-    height: 100px;
+    height: 50px;
     cursor: pointer;
     border-radius: 10px;
     border: none;
+    font-size: 20px;
 }
 .main-btns:focus{
     outline: none;
@@ -568,9 +572,13 @@ main > .content-holder > .topic {
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    background-color: white;
 }
 #article-manager>table td,#user-manager>table td{
-    border: 1px solid black;
+    border: 2px solid black;
+    padding: 10px;
 }
 table{
     width: 75%;
