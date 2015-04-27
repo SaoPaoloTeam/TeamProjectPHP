@@ -176,7 +176,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
             <h5 class="comment-author">Posted by: <?= $row['Name'] ?></h5>
                 <div class="comment-num">#<?php echo $index; $index++ ?></div>
             </div>
-            <p class="comment-date"><?= date("j F Y", strtotime($row['published_at'])) ?></p>
+            <p class="comment-date"><?= date("j F Y, H:i", strtotime($row['published_at'])) ?></p>
             <p class="comment-text"><?= $row['Comment'] ?></p>
 
             <?php if(($userLevel == 'User' && $row['Name'] == $publisher)): ?>

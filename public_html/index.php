@@ -32,11 +32,11 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
         <section class="content-holder">
             <?php if (isset($_GET['login']) && $_GET['login'] == 0): ?>
                 <div id="login-failed"
-                     style="display: none; background-color: RED; position: absolute; top: 8%; width: 200px; font-size: 35px; padding: 25px">
+                     style="display: none;">
                     LOGIN FAILED
                 </div>
-                <script>$('#login-failed').fadeIn(500).delay(500).fadeOut(500); </script>
-                <?php header("Refresh: 1.5, url=index.php"); ?>
+                <script>$('#login-failed').fadeIn(750).delay(750).fadeOut(750); </script>
+                <?php header("Refresh: 2.25, url=index.php"); ?>
             <?php endif; ?>
 
             <?php
