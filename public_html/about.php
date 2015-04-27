@@ -33,7 +33,6 @@ require_once(TEMPLATES_PATH . "/head.php");
         ?>
 
         <section class="about-page">
-            <h1>About us</h1>
             <p>&ensp;&ensp;Game of Thrones is an American fantasy drama television series created for HBO by showrunners David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is titled A Game of Thrones. Filmed in a Belfast studio and on location elsewhere in Northern Ireland, Croatia, Iceland, Morocco, Spain, Malta, Scotland, and the United States, it premiered on HBO in the United States on April 17, 2011. Two days after the fourth season premiered in April 2014, HBO renewed Game of Thrones for a fifth and sixth season. The fifth season premiered on April 12, 2015.
                 The series, set on the fictional continents of Westeros and Essos at the end of a decade-long summer, interweaves several plot lines with a broad ensemble cast. The first narrative arc follows a civil war among several noble houses for the Iron Throne of the Seven Kingdoms; the second covers the rising threat of the impending winter and the legendary creatures and fierce peoples of the North; the third chronicles the attempts of the exiled last scion of the realm's deposed ruling dynasty to reclaim the throne.</p>
             <section class="about-page-image"></section>
