@@ -64,7 +64,9 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
 
             <div id="form-div" style="display: none">
                 <form action="../resources/app_controls/add_article.php" method="post">
+                    <label for="">Title</label>
                     <input type="text" name="title" placeholder="Topic title.."/>
+                    <label for="">Content</label>
                     <textarea name="content" cols="30" rows="10" placeholder="Topic text"></textarea>
                     <select name="tags">
                         <option value="nightwatch">Night's Watch</option>
@@ -74,7 +76,7 @@ require_once(RESOURCES_PATH . "/custom_functions.php");
                         <option value="slaver">Slaver's Bay</option>
                         <option value="iron">The Iron Islands</option>
                     </select>
-                    <input type="submit" name="topic-submit" value="Submit"/>
+                    <input type="submit" name="topic-submit" value="Publish"/>
                 </form>
             </div>
         </section>

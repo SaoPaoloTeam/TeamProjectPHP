@@ -1,20 +1,22 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto:400,900italic,100,300,500,700,900,100italic,300italic,400italic,500italic,700italic');
+
 @font-face {
     src: url('../fonts/Knights%20Quest.ttf');
     font-family: knights;
 }
+
 @font-face {
     src: url('../fonts/steelfish%20rg.ttf');
     font-family: steelfish;
 }
 
-html{
+html {
     font-family: Roboto, Tahoma, Helvetica, serif;
     box-sizing: border-box;
     background-color: white;
 }
 
-body::after{
+body::after {
     box-sizing: border-box;
     content: "";
     background: url('../images/main-bckg.png');
@@ -31,9 +33,8 @@ body::after{
     background-position-y: 60%;
     background-attachment: local;
 
-
-
 }
+
 .wrapper {
 
     width: 1200px;
@@ -41,32 +42,31 @@ body::after{
     box-sizing: border-box;
     font-family: Roboto, Tahoma, Helvetica, sans-serif;
 }
+
 /*--------------*/
 /* HEADER START */
 /*--------------*/
 
-header  {
+header {
     width: 100%;
     height: 220px;
     /*margin: 0 10px;*/
 
 }
 
-
-
 header > nav > .logo {
     font: bold 40px knights, serif;
     margin: -3px 0 0 30px;
 }
-header>nav>.logo>a{
+
+header > nav > .logo > a {
     text-decoration: none;
     color: black;
 }
 
 header > .bg-holder {
     height: 180px;
-    background: #CCC url("../images/header-bg.jpg")
-    no-repeat center center;
+    background: #CCC url("../images/header-bg.jpg") no-repeat center center;
 }
 
 header > nav {
@@ -91,15 +91,13 @@ header > nav > section > form > .user-login {
     margin: 8px 3px 7px 0;
     border: none;
     font-size: 16px;
-    background: #FFF url("../images/username-icon.jpg")
-    no-repeat left top/23px 23px;
+    background: #FFF url("../images/username-icon.jpg") no-repeat left top/23px 23px;
     padding-left: 22px;
     font-family: Roboto, Verdana, Helvetica, serif;
 }
 
 header > nav > section > form > .user-login[type="password"] {
-    background: #FFF url("../images/pass-icon.jpg")
-    no-repeat left center/18px 18px;
+    background: #FFF url("../images/pass-icon.jpg") no-repeat left center/18px 18px;
     font-family: Roboto, Verdana, Helvetica, serif;
 
 }
@@ -114,7 +112,7 @@ header > nav > section > .user-logout {
     background: none repeat #F02;
     border: medium none;
     color: #FFF;
-    font-size:16px;
+    font-size: 16px;
     padding: 7px 10px;
     margin: 7px 10px 7px 0px;
     cursor: pointer;
@@ -141,7 +139,7 @@ header > nav > section > form > .login-submit {
     background: #F02;
     border: none;
     color: #FFF;
-    font-size:16px;
+    font-size: 16px;
     line-height: 16px;
     padding: 7px 10px 7px 10px;
     margin: 7px 10px 7px 5px;
@@ -166,7 +164,7 @@ header > nav > section > .register {
     line-height: 16px;
 }
 
-header > nav > section> .register:hover {
+header > nav > section > .register:hover {
     background: #FFF;
     color: #F02;
 }
@@ -189,7 +187,6 @@ main {
     box-sizing: border-box;
     padding: 0;
 
-
 }
 
 main > .content-holder {
@@ -211,7 +208,7 @@ main > .content-holder > .topic {
     text-shadow: 2px 2px 2px #000;
     height: 40px;
     margin: 0;
-    font-size:30px;
+    font-size: 30px;
     line-height: 40px;
     text-align: center;
     /*text-transform: uppercase;*/
@@ -238,7 +235,7 @@ main > .content-holder > .topic {
 }
 
 .topic > footer > .author {
-    font-size:20px;
+    font-size: 20px;
     width: auto;
     display: flex;
     color: #FFF;
@@ -279,7 +276,7 @@ main > .content-holder > .topic {
     background: #F02;
     color: #FFF;
     text-decoration: none;
-    font-size:18px;
+    font-size: 18px;
     padding: 3px 10px;
     margin: 0 3px;
 }
@@ -289,7 +286,6 @@ main > .content-holder > .topic {
     color: #F00;
     box-shadow: 1px 1px #CCC;
 }
-
 
 .author-black {
     color: #FFF;
@@ -306,10 +302,12 @@ main > .content-holder > .topic {
 }
 
 .date, .tag {
-    font-style: italic;
+    font: 14px sans-serif;
     font-weight: bold;
+    font-style: italic;
     padding: 6px 0 0 0;
     color: white;
+    line-height: 22px;
 }
 
 .topic > footer {
@@ -440,8 +438,8 @@ main > .content-holder > .topic {
     background: #FFF;
     color: #F02;
 }
-/*comments end*/
 
+/*comments end*/
 
 /*--------------------*/
 /* contact page start */
@@ -452,7 +450,7 @@ main > .content-holder > .topic {
     margin: 0 auto;
 }
 
-.contact .contact-info{
+.contact .contact-info {
     width: 100%;
     color: #FFFFFF;
     display: flex;
@@ -461,7 +459,7 @@ main > .content-holder > .topic {
 
 }
 
-.contact .contact-info input{
+.contact .contact-info input {
     display: block;
     width: 340px;
     margin: 0 0 15px 0;
@@ -471,7 +469,7 @@ main > .content-holder > .topic {
 
 }
 
-.contact .contact-info textarea{
+.contact .contact-info textarea {
     display: block;
     width: 340px;
     height: 150px;
@@ -497,8 +495,6 @@ main > .content-holder > .topic {
     color: #F02;
 }
 
-
-
 /*--------------------*/
 /* contact page end-- */
 /*--------------------*/
@@ -514,91 +510,202 @@ main > .content-holder > .topic {
     color: #FFFFFF;
 }
 
-.btns-holder{
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-}
-.main-btns{
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
-    word-wrap: break-word;
-    text-align: center;
-    background-color: #000000;
-    color: white;
-    width: 200px;
-    margin: 2%;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: none;
-    font-size: 20px;
-}
-.main-btns:focus{
-    outline: none;
-}
-#form-div{
-    display: none;
-    width: 75%;
-    align-self: center;
-    margin: 0 auto;
-}
-
-#form-div input[type='text']{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
-
-#form-div textarea{
-    width: 100%;
-    resize: none;
-}
-#article-manager, #user-manager{
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    background-color: white;
-}
-#article-manager>table td,#user-manager>table td{
-    border: 2px solid black;
-    padding: 10px;
-}
-table{
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-.title-table{
-    font-weight: bold;
-}
-
-.about-page p{
+.about-page p {
     font-size: 18px;
     text-align: justify;
     padding: 25px 30px 0;
     line-height: 1.2;
 }
+
 .about-page p:last-of-type {
     padding-bottom: 25px;
 }
 
-
 /*.about-page-image {*/
-    /*width: 100%;*/
-    /*height: 45px;*/
-    /*background-image: url("../images/aboutUsWall.png");*/
-    /*background-size: 100% 100%;*/
-    /*background-repeat: no-repeat;*/
+/*width: 100%;*/
+/*height: 45px;*/
+/*background-image: url("../images/aboutUsWall.png");*/
+/*background-size: 100% 100%;*/
+/*background-repeat: no-repeat;*/
 /*}*/
 
 /*--------------------*/
 /* about  page end- */
 /*--------------------*/
 
+/*--------------------*/
+/* ADMIN PANEL START */
+/*--------------------*/
+
+.btns-holder {
+
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+
+.main-btns {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    word-wrap: break-word;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    width: 200px;
+    margin: 0 2% 2% 0;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+}
+
+.main-btns:focus {
+    outline: none;
+}
+
+#form-div {
+    width: 75%;
+    font-size: 18px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+#form-div input[type='text'] {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    width: 100%;
+}
+
+#form-div textarea {
+    width: 100%;
+    resize: vertical;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#form-div select {
+    width: 100%;
+    font-size: 18px;
+}
+
+#form-div label {
+    font-weight: 900;
+}
+
+#form-div input[type='submit'] {
+    width: auto;
+    border: none;
+    height: auto;
+    background: #F02;
+    color: #FFF;
+    font-weight: bold;
+    padding: 5px 0;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-left: 220px;
+
+}
+
+#form-div input[type='submit']:hover{
+    color: #F02;
+    background: #FFF;
+}
+
+#article-manager, #user-manager {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+
+}
+
+#article-manager > table td, #user-manager > table td {
+    border: 2px solid black;
+    padding: 10px;
+
+}
+
+table {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.title-table {
+    font-weight: bold;
+}
+
+#edit-article-box > form {
+    width: 75%;
+    font-size: 18px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+#edit-article-box > form > textarea {
+    height: auto;
+    resize: vertical;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#edit-article-box > form > input {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+}
+
+#edit-article-box > form > label {
+    font-weight: 900;
+}
+
+#edit-article-box > form > select {
+    font-size: 18px;
+}
+
+#edit-article-box > form > input[type='submit'] {
+    width: auto;
+    border: none;
+    height: auto;
+    background: #F02;
+    color: #FFF;
+    font-weight: bold;
+    padding: 5px 0;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px 20px;
+
+}
+
+#edit-article-box > form > input[type='submit']:hover {
+
+    color: #F02;
+    background: #FFF;
+}
+.actions>a{
+    text-decoration: none;
+    padding: 8px;
+}
+
+.actions:hover, .actions>a:hover{
+    background: red;
+    color: #ffffff;
+
+}
+
+/*--------------------*/
+/* ADMIN PANEL START */
+/*--------------------*/
 
 /*---------------*/
 /*  CONTENT END  */
@@ -624,10 +731,9 @@ main > aside > ul > li {
 main > aside > ul > li > a {
     color: #FFF;
     padding: 10px 0 10px 30px;
-    font-size:18px;
+    font-size: 18px;
     text-decoration: none;
 }
-
 
 main > aside > ul > li:hover {
     background: rgba(196, 196, 196, 0.4);
@@ -644,13 +750,14 @@ main > #aside-navigation {
     /*margin: 10px;*/
 
 }
-.fixed{
+
+.fixed {
     position: fixed;
-    top:70px;
+    top: 70px;
 
 }
 
-.test{
+.test {
     margin: 0 auto;
 }
 
@@ -665,10 +772,9 @@ main > #aside-navigation > ul > li {
 main > #aside-navigation > ul > li > a {
     color: #FFF;
     padding: 10px 0 10px 30px;
-    font-size:18px;
+    font-size: 18px;
     text-decoration: none;
 }
-
 
 main > #aside-navigation > ul > li:hover {
     background: rgba(196, 196, 196, 0.4);
@@ -681,15 +787,9 @@ main > #aside-navigation > ul > li:hover > a {
     font-weight: 600;
 }
 
-
 /*-------------*/
 /*  ASIDE END  */
 /*-------------*/
-
-
-
-
-
 
 /*--------------*/
 /* FOOTER START */
@@ -707,45 +807,49 @@ main > #aside-navigation > ul > li:hover > a {
     display: flex;
     margin-top: 30px;
 
-
 }
-#houses{
+
+#houses {
     display: flex;
     justify-content: space-around;
     width: 49%;
     align-self: center;
 }
-#houses>a>img{
+
+#houses > a > img {
     width: 45px;
 }
+
 /*.page-footer > div {*/
 
-    /*float: left;*/
+/*float: left;*/
 /*}*/
 /*.footer-links{*/
-    /*align-self: center;*/
-    /*width:49% ;*/
+/*align-self: center;*/
+/*width:49% ;*/
 
 /*}*/
 /*.follow{*/
-    /*width: 45%;*/
-    /*height: 80%;*/
+/*width: 45%;*/
+/*height: 80%;*/
 /*}*/
 /*.iframe{*/
-    /*width: 30%;*/
-    /*height: 80%;*/
+/*width: 30%;*/
+/*height: 80%;*/
 /*}*/
-.copyright{
+.copyright {
     width: 49%;
     align-self: center;
 
 }
-.copyright p{
+
+.copyright p {
     text-align: left;
     margin-left: 35px;
     font-weight: 600;
 }
-.footer-links a{
+
+.footer-links a {
     /*display: block;*/
     /*margin-left: 50px;*/
     /*text-decoration: none;*/
@@ -757,7 +861,6 @@ main > #aside-navigation > ul > li:hover > a {
 /*------------*/
 /* FOOTER END */
 /*------------*/
-
 
 /* Register Page */
 

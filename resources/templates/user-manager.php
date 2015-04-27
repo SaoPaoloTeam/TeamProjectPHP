@@ -22,7 +22,7 @@
                         <?php echo $data['status']; ?>
 
                     </td>
-                    <td>
+                    <td class="actions">
                     <?php if ($data['status']=='active'): ?>
                         <a href='../resources/app_controls/delete.php?deactivateUser=<?php echo "{$data['id']}"; ?>'>deactivate</a>
                     <?php endif; ?>
