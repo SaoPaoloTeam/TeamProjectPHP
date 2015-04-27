@@ -216,7 +216,7 @@ main > .content-holder > .topic {
 
 .topic > .topic-content {
     width: 97%;
-    height: 110px;
+    height: auto;
     background: #FFF;
     padding: 5px 10px;
     font: 18px sans-serif;

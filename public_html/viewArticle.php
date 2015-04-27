@@ -34,7 +34,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
             <?php
             if (isset($_GET['title'])) {
                 $currTitle = htmlspecialchars($_GET['title']);
-                $patt = "/[^a-zA-Z0-9\\s]/";
+                $patt = "/[^a-zA-Z0-9\\s-]/";
                 if (preg_match($patt, $currTitle) > 0) {
                     echo "not a valid article name";
                     header("Refresh: 1.5, url=index.php");

@@ -117,7 +117,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
                     ?>
                     <article class="topic">
                         <header><?php echo $data['title']; ?></header>
-                        <p class="topic-content"><?php echo $data['content']; ?></p>
+                        <p class="topic-content"><?php echo substr($data['content'],0,280) . '...'; ?></p>
                         <footer>
                             <div class="author"><div class="author-black">Author:</div><div class="author-name"> <?php echo $data['author']; ?></div></div>
                             <div class="tag"><?php echo $tag; ?></div>
