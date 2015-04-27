@@ -41,16 +41,19 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
             <?php
             if (!isset($_SESSION['data'])) {
                 $_SESSION['data'] = [];
-                $queryArticles = "SELECT title, author, content, tag, published_at FROM Articles ORDER BY published_at DESC;";
+                $queryArticles = "SELECT title, author, content, tag, published_at, status FROM Articles ORDER BY published_at DESC;";
 
                 $selected = mysqli_query($conn, $queryArticles);
                 if ($selected) {
                     while ($data = mysqli_fetch_assoc($selected)) {
-                        array_push($_SESSION['data'], $data);
+                        if ($data['status'] == 'active') {
+                            array_push($_SESSION['data'], $data);
+                        }
                     }
                 } else {
                     echo mysqli_error($conn);
                 }
+
             }
             ?>
             <?php

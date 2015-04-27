@@ -173,23 +173,24 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
     $commAsArr = $rs->fetch_all(MYSQLI_ASSOC);
 
     foreach($commAsArr as $row): ?>
-    <h5>Posted by: <?= $row['Name'] ?></h5>
-    <p class="comment-date"><?= date("j F Y", strtotime($row['published_at'])) ?></p>
-    <hr size="1"/>
-    <?= $row['Comment'] ?> 
+        <div class="comment-box">
+            <h5 class="comment-author">Posted by: <?= $row['Name'] ?></h5>
+            <p class="comment-date"><?= date("j F Y", strtotime($row['published_at'])) ?></p>
+            <p class="comment-text"><?= $row['Comment'] ?></p>
 
-    <?php if(($userLevel == 'User' && $row['Name'] == $publisher)): ?>
-    <form action="#" method="POST">
-        <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
-    </form>
-<?php elseif ($userLevel == 'Admin'): ?>
-    <form action="#" method="POST">
-        <?php if ($publisher == $row['Name']): ?>
-        <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
-        <?php endif; ?>
-        <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Delete" />
-    </form>
+            <?php if(($userLevel == 'User' && $row['Name'] == $publisher)): ?>
+            <form action="#" method="POST">
+                <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
+            </form>
+            <?php elseif ($userLevel == 'Admin'): ?>
+            <form action="#" method="POST">
+                <?php if ($publisher == $row['Name']): ?>
+                <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
+                <?php endif; ?>
+                <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Delete" />
+            </form>
 <?php endif; ?>
+            </div>
 
 <?php endforeach; ?>
 

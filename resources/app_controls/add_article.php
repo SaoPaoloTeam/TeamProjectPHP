@@ -24,9 +24,9 @@ if (isset($_POST['topic-submit'])) {
         redirect_to("../../public_html/index.php");
         exit();
     } else {
-        $query = "INSERT INTO Articles (author, title, content, published_at, updated_at, tag)
+        $query = "INSERT INTO Articles (author, title, content, published_at, updated_at, status, tag)
                         VALUES ('{$arr[$author]}','{$arr[$title]}','{$arr[$content]}',
-                        '{$timestamp}','{$timestamp}', '{$arr[$tag]}')";
+                        '{$timestamp}','{$timestamp}', 'active', '{$arr[$tag]}')";
 
         $result = mysqli_query($conn, $query);
         if ($result) {
