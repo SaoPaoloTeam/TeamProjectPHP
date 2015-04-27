@@ -16,7 +16,7 @@ html{
 body::after{
     box-sizing: border-box;
     content: "";
-    background: url('../images/main-bckg.jpg') no-repeat;
+    background: url('../images/main-bckg.jpg');
 
     background-size: 100%;
     height: auto;
@@ -25,7 +25,7 @@ body::after{
     left: 0;
     bottom: 0;
     right: 0;
-    position: absolute;
+    position: fixed;
     z-index: -2;
     background-position-y: -50%;
     background-attachment: local;
