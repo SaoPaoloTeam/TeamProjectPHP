@@ -386,7 +386,7 @@ main > .content-holder > .topic {
     color: #FFF;
     padding: 5px 10px;
     display: block;
-    width: 110px;
+    width: 120px;
     margin: 20px 0 0;
     text-align: center;
     font-weight: bold;
@@ -402,6 +402,21 @@ main > .content-holder > .topic {
 .guest-post > textarea {
     resize: none;
     box-shadow: 2px 2px 5px #666;
+}
+
+.edit-comm {
+    margin: 8px 0 0 0;
+    background: #F02;
+    color: #FFF;
+    border: none;
+    box-shadow: 1px 1px 2px #CCC;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.edit-comm:hover {
+    background: #FFF;
+    color: #F02;
 }
 /*comments end*/
 

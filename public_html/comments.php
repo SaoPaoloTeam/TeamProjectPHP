@@ -181,14 +181,14 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
 
             <?php if(($userLevel == 'User' && $row['Name'] == $publisher)): ?>
             <form action="#" method="POST">
-                <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
+                <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" class="edit-comm"/>
             </form>
             <?php elseif ($userLevel == 'Admin'): ?>
             <form action="#" method="POST">
                 <?php if ($publisher == $row['Name']): ?>
-                <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Edit" />
+                <input id="postEdit" type="submit" name='<?php echo  $row['id']; ?>' value="Edit" class="edit-comm"/>
                 <?php endif; ?>
-                <input id="postEdit" type="submit" name='<?php echo  $row['id'] ?>' value="Delete" />
+                <input id="postEdit" type="submit" name='<?php echo  $row['id']; ?>' value="Delete" class="edit-comm" />
             </form>
 <?php endif; ?>
             </div>
@@ -198,9 +198,9 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
 <?php
 
 if($userLevel == 'Admin' || $userLevel == 'User' ):?>
-<div id="comment-editor">
-    <form action="#" method="POST" >
-        <p>Your Name: <?= $publisher ?> </p>
+    <span class="write-comment" onclick="showCommentForm(this)">Post a comment</span>
+<div id="comment-editor" style="display: <?php if ($id) echo "block"; else echo "none"; ?>;">
+    <form action="#" method="POST" class="guest-post">
         <label for="comment">Comment:</label>
         <?php if ($id && !isset($_SESSION['delete-comm'])) {
             $sql="SELECT Comment FROM Comments WHERE id='{$id}'";
