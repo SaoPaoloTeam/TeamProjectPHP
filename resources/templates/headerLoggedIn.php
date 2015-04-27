@@ -2,7 +2,7 @@
 <header>
     <nav>
         <section class="logo">
-            A Blog Of Ice And Fire
+            <a href="index.php">A Blog Of Ice And Fire</a>
         </section>
         <section>
         <div class="hello-box">

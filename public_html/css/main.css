@@ -1,11 +1,35 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,900italic,100,300,500,700,900,100italic,300italic,400italic,500italic,700italic');
 @font-face {
     src: url('../fonts/Knights%20Quest.ttf');
     font-family: knights;
 }
+@font-face {
+    src: url('../fonts/steelfish%20rg.ttf');
+    font-family: steelfish;
+}
 
+html{
+    font-family: Roboto, Tahoma, Helvetica, serif;
+}
+body::after{
+    content: "";
+    background: url('../images/main-bckg.jpg') no-repeat;
+    background-size: 100%;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;s
+    background-position-y: -50%;
+
+
+}
 .wrapper {
     width: 1200px;
     margin: 0 auto;
+    font-family: Roboto, Tahoma, Helvetica, sans-serif;
 }
 /*--------------*/
 /* HEADER START */
@@ -17,9 +41,17 @@ header  {
     margin: 0 10px;
 }
 
+nav{
+    position: fixed;
+}
+
 header > nav > .logo {
     font: bold 40px knights, serif;
     margin: -3px 0 0 30px;
+}
+header>nav>.logo>a{
+    text-decoration: none;
+    color: black;
 }
 
 header > .bg-holder {
@@ -35,7 +67,9 @@ header > nav {
     flex-flow: row wrap;
     justify-content: space-between;
     background: #CCC;
-    font: bold 17px sans-serif;
+    font-size: 16px;
+    font-family: Roboto, Tahoma, Helvetica, serif;
+    font-weight: 900;
 }
 
 /* LOGIN START */
@@ -44,28 +78,31 @@ header > nav > section > form > .user-login {
     height: 28px;
     margin: 8px 3px 7px 0;
     border: none;
-    font: bold 17px sans-serif;
+    font-size: 16px;
     background: #FFF url("../images/username-icon.jpg")
     no-repeat left top/23px 23px;
     padding-left: 22px;
+    font-family: Roboto, Verdana, Helvetica, serif;
 }
 
 header > nav > section > form > .user-login[type="password"] {
     background: #FFF url("../images/pass-icon.jpg")
     no-repeat left center/18px 18px;
+    font-family: Roboto, Verdana, Helvetica, serif;
 
 }
 
 header > nav > section {
     display: flex;
     flex-flow: row wrap;
+
 }
 
 header > nav > section > .user-logout {
     background: none repeat #F02;
     border: medium none;
     color: #FFF;
-    font: bolder 17px sans-serif;
+    font-size:17px;
     padding: 6px 10px 3px;
     margin: 7px 10px 7px 5px;
     cursor: pointer;
@@ -83,7 +120,7 @@ header > nav > section > .hello-box {
     height: 32px;
     margin: 7px 3px;
     padding: 0 15px;
-    font: bold 23px sans-serif;
+    font-size: 23px;
     line-height: 143%;
 }
 
@@ -91,10 +128,13 @@ header > nav > section > form > .login-submit {
     background: #F02;
     border: none;
     color: #FFF;
-    font: bold 17px sans-serif;
-    padding: 4px 10px 3px 10px;
+    font-size:16px;
+    line-height: 16px;
+    padding: 7px 10px 7px 10px;
     margin: 7px 10px 7px 5px;
     cursor: pointer;
+    font-family: Roboto, Verdana, Helvetica, serif;
+    font-weight: 900;
 }
 
 header > nav > section > form > .login-submit:hover {
@@ -108,12 +148,12 @@ header > nav > section > .register {
     background: #F02;
     color: #FFF;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 7px 10px;
     margin: 8px 10px 7px 5px;
-    line-height: 1.2
+    line-height: 16px;
 }
 
-header > nav > .register:hover {
+header > nav > section> .register:hover {
     background: #FFF;
     color: #F02;
 }
@@ -155,7 +195,7 @@ main > .content-holder > .topic {
     text-shadow: 2px 2px 2px #FFF;
     height: 40px;
     margin: 0;
-    font: bold 30px sans-serif;
+    font-size:30px;
     text-align: center;
     text-transform: uppercase;
 }
@@ -163,7 +203,7 @@ main > .content-holder > .topic {
 .topic > .topic-content {
     width: 90%;
     margin: 5px auto;
-    font: 18px sans-serif;
+    font-size: 18px;
 }
 
 .topic > footer {
@@ -178,7 +218,7 @@ main > .content-holder > .topic {
 }
 
 .topic > footer > .author {
-    font: bold 25px sans-serif;
+    font-size: bold 25px;
     width: auto;
     height: 35px;
     display: flex;
@@ -188,7 +228,7 @@ main > .content-holder > .topic {
 
 .topic > footer > .read-more {
     margin: 9px 0 0 0;
-    font: bold 14px sans-serif;
+    font-size: 14px;
 }
 
 .topic > footer > .read-more > a {
@@ -216,7 +256,7 @@ main > .content-holder > .topic {
     background: #F02;
     color: #FFF;
     text-decoration: none;
-    font: bold 18px sans-serif;
+    font-size:18px;
     padding: 3px 10px;
     margin: 0 3px;
 }
@@ -477,7 +517,7 @@ main > aside > ul > li {
 main > aside > ul > li > a {
     color: #FFF;
     padding: 10px 0 10px 30px;
-    font: 600 18px sans-serif;
+    font-size:18px;
     text-decoration: none;
 }
 
@@ -508,7 +548,7 @@ main > #aside-navigation > ul > li {
 main > #aside-navigation > ul > li > a {
     color: #FFF;
     padding: 10px 0 10px 30px;
-    font: 600 18px sans-serif;
+    font-size:18px;
     text-decoration: none;
 }
 
