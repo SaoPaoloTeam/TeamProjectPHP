@@ -41,3 +41,4 @@ function showCommentForm(el) {
         el.innerHTML = "Post a comment";
     }
 }
+

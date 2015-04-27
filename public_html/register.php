@@ -18,6 +18,40 @@ require_once(TEMPLATES_PATH . "/head.php");
     ?>
 <main>
     <?php
+        if (isset($_GET['regfail'])):
+        $err = $_GET['regfail'];
+        if ($err == 'passfail'):
+    ?>
+        <div id="pass-match"
+             style="display: none; background-color: RED; position: absolute; top: 8%; width: 200px; font-size: 25px; padding: 25px">
+            PASSWORDS DO NOT MATCH OR TOO SHORT!
+        </div>
+        <script>$('#pass-match').fadeIn(500).delay(1000).fadeOut(500); </script>
+        <?php header("Refresh: 2.5, url=register.php");
+
+    elseif ($err == 'namefail'): ?>
+        <div id="name-fail"
+             style="display: none; background-color: RED; position: absolute; top: 8%; width: 200px; font-size: 25px; padding: 25px">
+            NAME MUST CONTAIN LETTERS AND DIGITS ONLY OR TOO SHORT!
+        </div>
+        <script>$('#name-fail').fadeIn(500).delay(1000).fadeOut(500); </script>
+        <?php header("Refresh: 2.5, url=register.php");
+
+    elseif ($err == 'mailfail'): ?>
+        <div id="mail-fail"
+             style="display: none; background-color: RED; position: absolute; top: 8%; width: 200px; font-size: 25px; padding: 25px">
+            NOT A VALID EMAIL
+        </div>
+        <script>$('#mail-fail').fadeIn(500).delay(1000).fadeOut(500); </script>
+        <?php header("Refresh: 2.5, url=register.php");
+
+
+        endif;
+        endif;
+    ?>
+
+
+    <?php
     if ($_SESSION['level'] == 0) {
         require_once(TEMPLATES_PATH . "/aside-navigation.php");
     } else if ($_SESSION['level'] == 1) {
@@ -27,12 +61,12 @@ require_once(TEMPLATES_PATH . "/head.php");
     }
     ?>
 
-    <form action="register.php" method="post">
-        <input type="text" name="username"/>
-        <input type="password" name="password"/>
-        <input type="password" name="rpassword"/>
-        <input type="email" name="email"/>
-        <input type="submit" name="submit"/>
+    <form action="../resources/app_controls/reg-user.php" method="post" class="register-form">
+        <div class="reg-input-holder"><input type="text" name="username" placeholder="Name"/></div>
+        <div class="reg-input-holder"><input type="password" name="password" placeholder="Password"/></div>
+        <div class="reg-input-holder"><input type="password" name="rpassword" placeholder="Repeat password"/></div>
+        <div class="reg-input-holder"><input type="email" name="email" placeholder="Email"/></div>
+        <div class="reg-input-holder"><input type="submit" name="submit" value="Join the Night's Watch!"/></div>
     </form>
 
     <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
@@ -40,51 +74,15 @@ require_once(TEMPLATES_PATH . "/head.php");
     <?php require_once(TEMPLATES_PATH . "/footer.php"); ?>
 </div>
 
-
-<?php
-include_once('connection.php');
-if (isset($_POST['submit'])) {
-    $pass = md5(processInput($_POST['password']));
-    $rpass = md5(processInput($_POST['rpassword']));
-    $uname = processInput($_POST['username']);
-    $email = processInput($_POST['email']);
-    $status = 'active';
-    $level = 1;
-    if ($pass != $rpass) {
-        die("Passwords do not match");
-    }
-    var_dump($uname);
-
-    $arr = escapeAll([$uname, $pass, $rpass, $email, $status, $level], $conn);
-    $timestamp = date('Y-m-d G:i:s');
-
-    //check whether a user exists
-    $queryUser = "SELECT username FROM Users WHERE username = '$uname';";
-    $selected = mysqli_query($conn, $queryUser);
-
-    if ($selected->num_rows) {
-        echo "user exists";
-    } else {
-        //create new user
-        $query = "INSERT INTO Users (username, password, email, reg_date, status, level)
-                        VALUES ('{$arr[$uname]}','{$arr[$pass]}','{$arr[$email]}','{$timestamp}', '{$arr[$status]}', '{$arr[$level]}')";
-
-        $result = mysqli_query($conn, $query);
-        if ($result) {
-            echo "Success";
-        } else {
-            echo mysqli_error($conn);
-        }
-    }
-}
-?>
-
-<!--Loading Footer-->
 <?php
 require_once(TEMPLATES_PATH . "/footer.php");
 ?>
 </body>
 </html>
+
+
+
+
 
 
 
