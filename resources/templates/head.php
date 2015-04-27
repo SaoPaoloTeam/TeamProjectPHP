@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>Blog</title>
+    <title>GoT Blog</title>
 
     <link href='css/reset.css' rel='stylesheet'>
     <link href='css/main.css' rel='stylesheet'>

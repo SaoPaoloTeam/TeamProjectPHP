@@ -5,6 +5,7 @@ require_once(realpath(dirname(__FILE__) . "/../custom_functions.php"));
 
 
 if (isset($_GET['hideArticle'])) {
+
     $id = intval($_GET['hideArticle']);
     $queryDeactivate = "UPDATE Articles ";
     $queryDeactivate .= "SET status='inactive' ";

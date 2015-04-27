@@ -29,12 +29,20 @@ function showCreateNewArticle(){
 }
 
 
-function getContent(content,title,id){
-    document.getElementById('content-edit').value = content;
+function getContent(title,id){
+    document.getElementById('content-edit').value = document.getElementById('area'+id).value;
     document.getElementById('title-edit').value = title;
     document.getElementById('article-id').value = id;
 
 }
+
+//function getContent(arr){
+//    document.getElementById('content-edit').value = arr['content'];
+//    document.getElementById('title-edit').value = arr['title'];
+//    document.getElementById('article-id').value = arr['id'];
+//
+//}
+
 
 function showCommentForm(el) {
     var menu = document.getElementById('comment-editor');
