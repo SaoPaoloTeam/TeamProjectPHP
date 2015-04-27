@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 
     $emailPattern = "/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/";
 
-    if (preg_match($emailPattern, $email) < 1) {
+    if (preg_match($emailPattern, $email) > 1) {
         header("Location: ../../public_html/register.php?regfail=mailfail");
         exit();
     }
@@ -45,7 +45,10 @@ if (isset($_POST['submit'])) {
 
         $result = mysqli_query($conn, $query);
         if ($result) {
-            echo "Success";
+            session_start();
+            $_SESSION['level']=1;
+            $_SESSION['user'] = $uname;
+            redirect_to('../../public_html/index.php');
         } else {
             echo mysqli_error($conn);
         }
