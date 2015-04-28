@@ -32,12 +32,12 @@ require_once(RESOURCES_PATH . "../app_controls/session.php");
         <div class="contact">
 
 
-            <div class="contact-info">
-                <input type="text" placeholder="Your name"/>
+            <form method="post" action="../resources/app_controls/send_mail.php" class="contact-info">
+                <input type="text" placeholder="Your name" name="yname"/>
                 <input type="text" placeholder="Your email"/>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Contact us !"></textarea>
-                <input type="submit" value="Send message"/>
-            </div>
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Contact us !"></textarea>
+                <input type="submit" value="Send message" name="submit"/>
+            </form>
         </div>
         <?php require_once(TEMPLATES_PATH . "/rightPanel.php"); ?>
 
