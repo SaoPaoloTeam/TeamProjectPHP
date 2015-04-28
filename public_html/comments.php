@@ -65,9 +65,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
             VALUES ('{$arr[$name]}', '{$arr[$comments]}', '{$arr[$articleTitle]}')";
 
             $result = mysqli_query($conn, $insert);
-            if ($result) {
-                echo "Success";
-            } else {
+            if (!$result) {
                 echo mysqli_error($conn);
             }
         }
@@ -87,10 +85,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
                 $insert = "UPDATE Comments SET Comment='{$arr[$comments]}' WHERE id ='{$_SESSION['idComm']}'";
                 unset($_SESSION['idComm']);
                 $result = mysqli_query($conn, $insert);
-                if ($result) {
-                    echo "Success";
-                    redirect_to("viewArticle.php?title=" . $title);
-                } else {
+                if (!$result)  {
                     echo mysqli_error($conn);
                 }
             }
@@ -100,12 +95,9 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
             unset($_SESSION['idComm']);
             unset($_SESSION['delete-comm']);
             $result = mysqli_query($conn, $insert);
-            if ($result) {
-                echo "Success";
-                redirect_to("viewArticle.php?title=" . $title);
-            } else {
+            if (!$result) {
                 echo mysqli_error($conn);
-            }   
+            }
         }
     }
 } else {
@@ -119,9 +111,7 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
             VALUES ('{$arr[$name]}', '{$arr[$comments]}', '{$arr[$articleTitle]}')";
 
             $result = mysqli_query($conn, $insert);
-            if ($result) {
-                echo "Success";
-            } else {
+            if (!$result)  {
                 echo mysqli_error($conn);
             }
         }
@@ -192,7 +182,6 @@ if($userLevel == 'Admin' || $userLevel == 'User' ){
             </form>
 <?php endif; ?>
             </div>
-
 <?php endforeach; ?>
 
 <?php

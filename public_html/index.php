@@ -41,7 +41,7 @@ require_once(TEMPLATES_PATH . "/head.php"); ?>
 
             <?php
             if (!isset($_SESSION['data'])) {
-                $_SESSION['data'] = [];
+                $_SESSION['data'] = array();
                 $queryArticles = "SELECT id, title, author, content, tag, published_at, status FROM Articles ORDER BY published_at DESC;";
 
                 $selected = mysqli_query($conn, $queryArticles);
