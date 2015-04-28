@@ -153,7 +153,7 @@ header > nav > section > form > .login-submit:hover {
     color: #F02;
 }
 
-#login-failed,#name-fail, #pass-fail{
+#login-failed,#name-fail, #pass-match, #mail-fail {
     background-color: RED;
     position: absolute;
     top: 15%;

@@ -7,10 +7,7 @@ if (isset($_POST['submit'])) {
     $message = processInput($_POST['message']);
     $message = wordwrap($message, 60, "\r\n");
 
-    $result = mail($to, $from, $message);
-
-    if ($result) {
-        header("Location: ../../public_html/index.php");
-        exit();
-    }
+    mail($to, $from, $message);
+    header("Location: ../../public_html/index.php");
+    exit();
 }
